@@ -1,0 +1,74 @@
+.hero {
+  background-color: #ffffff;
+  padding: 80px 60px 100px 60px;
+  min-height: auto;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 24px 80px 24px;
+  }
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.label {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #000000;
+  margin-bottom: 32px;
+  letter-spacing: 0;
+}
+
+.heading {
+  font-family: 'Rosario', serif;
+  font-weight: 500;
+  font-size: 96px;
+  line-height: 1.15;
+  color: #000000;
+  margin-bottom: 64px;
+  letter-spacing: -0.01em;
+  max-width: 1100px;
+}
+
+@media (max-width: 1024px) {
+  .heading {
+    font-size: 72px;
+    margin-bottom: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .label {
+    font-size: 12px;
+    margin-bottom: 24px;
+  }
+
+  .heading {
+    font-size: 42px;
+    margin-bottom: 32px;
+    line-height: 1.2;
+  }
+}
+
+.description {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #000000;
+  max-width: 800px;
+  letter-spacing: 0;
+}
+
+@media (max-width: 768px) {
+  .description {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}

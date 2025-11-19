@@ -1,0 +1,77 @@
+.section {
+  padding: 100px 60px;
+}
+
+.section.dark {
+  background-color: #1a1a1a;
+}
+
+.section.light {
+  background-color: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 30px;
+  }
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-family: 'Rosario', serif;
+  font-size: 48px;
+  font-weight: 500;
+  margin-bottom: 48px;
+}
+
+.section.dark .heading {
+  color: #ffffff;
+}
+
+.section.light .heading {
+  color: #000000;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.badge {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.section.dark .badge {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  border: 1px solid #333333;
+}
+
+.section.light .badge {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #e0e0e0;
+}
+
+.badge:hover {
+  transform: translateY(-4px);
+}
+
+.section.dark .badge:hover {
+  border-color: #666666;
+}
+
+.section.light .badge:hover {
+  border-color: #cccccc;
+}
