@@ -2,13 +2,12 @@ import { getProject, getAllProjectSlugs } from '@/lib/projectsData';
 import WorkDetailHero from '@/app/components/work/WorkDetailHero';
 import ProjectMetadata from '@/app/components/work/ProjectMetadata';
 import ContentSection from '@/app/components/work/ContentSection';
-import TechStack from '@/app/components/work/TechStack';
 import ResultsSection from '@/app/components/work/ResultsSection';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 
 interface WorkDetailPageProps {
-  params: {
+  params: { 
     slug: string;
   };
 }
@@ -53,13 +52,12 @@ export default function WorkDetailPage({ params }: WorkDetailPageProps) {
         title={project.title}
         tagline={project.tagline}
         coverImage={project.coverImage}
-        theme={project.theme}
+        style="clean"
       />
 
       <ProjectMetadata
         services={project.services}
         sectors={project.sectors}
-        studio={project.studio}
         theme={project.theme}
       />
 
@@ -89,13 +87,13 @@ export default function WorkDetailPage({ params }: WorkDetailPageProps) {
         reversed
       />
 
-      <section style={{ padding: '100px 60px', background: project.theme === 'dark' ? '#1a1a1a' : '#f5f5f5' }}>
+      <section style={{ padding: '100px 60px', background: '#ffffff' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <h2 style={{
             fontFamily: 'Rosario, serif',
             fontSize: '48px',
             fontWeight: 500,
-            color: project.theme === 'dark' ? '#ffffff' : '#000000',
+            color: '#000000',
             marginBottom: '48px',
           }}>
             Key Features
@@ -109,14 +107,14 @@ export default function WorkDetailPage({ params }: WorkDetailPageProps) {
               <div key={feature.title} style={{
                 padding: '24px',
                 borderRadius: '8px',
-                background: project.theme === 'dark' ? '#0a0a0a' : '#ffffff',
-                border: `1px solid ${project.theme === 'dark' ? '#333' : '#e0e0e0'}`,
+                background: '#ffffff',
+                border: '1px solid #e0e0e0',
               }}>
                 <h3 style={{
                   fontFamily: 'Rosario, serif',
                   fontSize: '18px',
                   fontWeight: 500,
-                  color: project.theme === 'dark' ? '#ffffff' : '#000000',
+                  color: '#000000',
                   marginBottom: '8px',
                 }}>
                   {feature.title}
@@ -124,8 +122,9 @@ export default function WorkDetailPage({ params }: WorkDetailPageProps) {
                 <p style={{
                   fontFamily: 'Roboto, sans-serif',
                   fontSize: '14px',
-                  color: project.theme === 'dark' ? '#a3a3a3' : '#525252',
+                  color: '#525252',
                   lineHeight: '1.6',
+                  margin: 0,
                 }}>
                   {feature.description}
                 </p>
@@ -134,8 +133,6 @@ export default function WorkDetailPage({ params }: WorkDetailPageProps) {
           </div>
         </div>
       </section>
-
-      <TechStack technologies={project.technologies} theme={project.theme} />
 
       <ResultsSection results={project.results} theme={project.theme} />
     </>

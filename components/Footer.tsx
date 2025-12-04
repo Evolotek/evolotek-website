@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Linkedin, Instagram, Music, Mic, ArrowRight } from 'lucide-react';
+import { Linkedin, Twitter, Instagram, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 export function Footer() {
@@ -64,81 +64,41 @@ export function Footer() {
             </motion.div>
           </div>
 
-          <div className="border-t border-white/20 pt-12">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-              <nav className="flex flex-wrap gap-6 md:gap-8">
-                <Link
-                  href="/studios"
-                  className="text-white hover:text-gray-300 transition-colors text-base"
-                >
-                  Studios
-                </Link>
-                <Link
-                  href="/culture"
-                  className="text-white hover:text-gray-300 transition-colors text-base"
-                >
-                  Culture
-                </Link>
-                <Link
-                  href="/dei"
-                  className="text-white hover:text-gray-300 transition-colors text-base"
-                >
-                  DE&I
-                </Link>
-                <Link
-                  href="/play"
-                  className="text-white hover:text-gray-300 transition-colors text-base"
-                >
-                  Play
-                </Link>
-              </nav>
-
-              <div className="flex items-center gap-4">
+          <div className="border-t border-white/20 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+              {/* Social Icons */}
+              <div className="flex items-center gap-6">
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/company/evolotek/posts/?feedView=all"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white hover:text-gray-300 transition-colors"
+                  className="text-white hover:text-gray-300 transition-colors transform hover:scale-110"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://x.com/evolotek"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white hover:text-gray-300 transition-colors"
+                  className="text-white hover:text-gray-300 transition-colors transform hover:scale-110"
+                  aria-label="Twitter/X"
+                >
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/evolotek?igsh=eml5aTdheDZvb2dl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-gray-300 transition-colors transform hover:scale-110"
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5" />
                 </a>
-                <a
-                  href="https://spotify.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-gray-300 transition-colors"
-                  aria-label="Spotify"
-                >
-                  <Music className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://podcasts.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-gray-300 transition-colors"
-                  aria-label="Podcast"
-                >
-                  <Mic className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
-
-            <div className="mt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-sm text-gray-300">
-              <div className="flex items-center gap-2">
-                <span>© 2025 Evolotek</span>
               </div>
 
-              <div className="flex flex-wrap gap-4">
+              {/* Legal Links & Copyright */}
+              <div className="flex flex-wrap items-center justify-center md:justify-end gap-4 text-sm text-gray-300">
                 <Link href="/privacy" className="hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
@@ -147,13 +107,7 @@ export function Footer() {
                   Terms of Use
                 </Link>
                 <span className="text-gray-500">|</span>
-                <Link href="/cookies" className="hover:text-white transition-colors">
-                  Cookie Policy
-                </Link>
-                <span className="text-gray-500">|</span>
-                <Link href="/cookie-settings" className="hover:text-white transition-colors">
-                  Cookie Settings
-                </Link>
+                <span>© 2025 Evolotek. All rights reserved.</span>
               </div>
             </div>
           </div>

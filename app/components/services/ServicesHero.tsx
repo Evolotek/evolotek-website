@@ -8,22 +8,12 @@ export default function ServicesHero() {
   return (
     <section className={styles.hero}>
       <div className={styles.container}>
-        <motion.p
-          className={styles.label}
-          initial="hidden"
-          whileInView="visible"
-          variants={fadeInUpVariants}
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          Services
-        </motion.p>
-
         <motion.h1
           className={styles.heading}
           initial="hidden"
           whileInView="visible"
           variants={fadeInUpVariants}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           Everything You Need to Build, Transform, and Scale.
         </motion.h1>
@@ -33,7 +23,7 @@ export default function ServicesHero() {
           initial="hidden"
           whileInView="visible"
           variants={fadeInUpVariants}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           We're your one-stop partner for building smart, scalable, and secure digital systems — from code to culture.
         </motion.p>

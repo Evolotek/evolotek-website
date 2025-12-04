@@ -2,17 +2,80 @@
 
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { useEffect, useRef } from 'react';
 import { ServicesCarousel } from '@/components/ServicesCarousel';
 import { OurWorkSection } from '@/components/OurWorkSection';
 import LetsWorkTogether from '@/components/LetsWorkTogether';
 import HowWeWork from '@/components/HowWeWork';
 import OurPrinciples from '@/components/OurPrinciples';
-import { Footer } from '@/components/Footer';
-
 
 export default function Home() {
+  const cursorGlowRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Add custom-cursor class to body only on homepage
+    document.body.classList.add('custom-cursor');
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (cursorGlowRef.current) {
+        // Check if mouse is over navbar or interactive elements
+        const target = e.target as HTMLElement;
+        const isOverInteractive = 
+          target.closest('nav') || 
+          target.closest('header') || 
+          target.closest('a') || 
+          target.closest('button') ||
+          target.tagName === 'A' ||
+          target.tagName === 'BUTTON';
+
+        // Smooth animation using requestAnimationFrame
+        requestAnimationFrame(() => {
+          if (cursorGlowRef.current) {
+            cursorGlowRef.current.style.left = `${e.clientX}px`;
+            cursorGlowRef.current.style.top = `${e.clientY}px`;
+            
+            // Optional: Reduce glow opacity when over interactive elements
+            if (isOverInteractive) {
+              cursorGlowRef.current.style.opacity = '0.3';
+            } else {
+              cursorGlowRef.current.style.opacity = '1';
+            }
+          }
+        });
+      }
+    };
+
+    const handleMouseEnter = () => {
+      if (cursorGlowRef.current) {
+        cursorGlowRef.current.style.opacity = '1';
+      }
+    };
+
+    const handleMouseLeave = () => {
+      if (cursorGlowRef.current) {
+        cursorGlowRef.current.style.opacity = '0';
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    document.body.addEventListener('mouseenter', handleMouseEnter);
+    document.body.addEventListener('mouseleave', handleMouseLeave);
+
+    // Cleanup function - remove custom cursor when leaving homepage
+    return () => {
+      document.body.classList.remove('custom-cursor');
+      window.removeEventListener('mousemove', handleMouseMove);
+      document.body.removeEventListener('mouseenter', handleMouseEnter);
+      document.body.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
+
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div ref={containerRef} className="relative min-h-screen overflow-hidden">
+      {/* Cursor glow effect - only on homepage */}
+      <div ref={cursorGlowRef} className="cursor-glow" style={{ opacity: 0 }} />
+      
       <div className="animated-gradient" />
       <div className="relative z-10">
         <main className="flex flex-col min-h-screen px-6 md:px-12 relative">

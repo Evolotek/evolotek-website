@@ -23,47 +23,19 @@ export default function ContentSection({
   theme,
   reversed = false,
 }: ContentSectionProps) {
-  const themeClass = theme === 'dark' ? styles.dark : styles.light;
-  const layoutClass = styles[layout];
-  const reverseClass = reversed ? styles.reversed : '';
-
   return (
     <motion.section
-      className={`${styles.section} ${themeClass}`}
+      className={styles.section}
       initial="hidden"
       whileInView="visible"
       variants={fadeInUpVariants}
       viewport={{ once: true, amount: 0.2 }}
     >
-      <div className={`${styles.container} ${layoutClass} ${reverseClass}`}>
+      <div className={styles.container}>
         <div className={styles.content}>
           <h2 className={styles.heading}>{heading}</h2>
           <p className={styles.text}>{content}</p>
         </div>
-
-        {image && layout !== 'text-only' && (
-          <motion.div
-            className={styles.imageWrapper}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            <img src={image} alt={imageAlt} className={styles.image} />
-          </motion.div>
-        )}
-
-        {image && layout === 'image-full' && (
-          <motion.div
-            className={styles.fullBleedImage}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            <img src={image} alt={imageAlt} />
-          </motion.div>
-        )}
       </div>
     </motion.section>
   );

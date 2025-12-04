@@ -25,10 +25,11 @@ export function Navigation() {
 
   const navLinks = [
     { href: '/insights', label: 'Insights' },
+    { href: '/startup', label: 'Startup' },
     { href: '/work', label: 'Work' },
     { href: '/services', label: 'Services' },
     { href: '/culture', label: 'Culture' },
-    { href: '/#', label: 'Define Your Edge' },
+    // { href: '/#', label: 'Define Your Edge' },
     { href: '/contact', label: 'Contact Us' },
   ];
 
@@ -45,7 +46,7 @@ export function Navigation() {
       <nav className="max-w-[1400px] mx-auto px-6 md:px-12 py-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group relative">
           <Image
-            src="/images/logo.png"
+            src="/images/evolotek-logo.png"
             alt="Evolotek Logo"
             width={200}
             height={70}
@@ -73,19 +74,6 @@ export function Navigation() {
             </Link>
           ))}
         </div>
-
-        {/* <button
-          className={`hidden lg:flex items-center gap-2 px-4 py-2 border rounded-full transition-colors ${
-            isGradientBg
-              ? 'border-white/30 text-white hover:bg-white/10'
-              : isDarkText
-                ? 'border-black/30 text-black hover:bg-black/5'
-                : 'border-black/30 text-black hover:bg-black/5'
-          }`}
-        >
-          Global
-          <ChevronDown className="w-4 h-4" />
-        </button> */}
 
         <button
           className={`lg:hidden flex flex-col gap-1.5 w-8 ${

@@ -1,0 +1,584 @@
+/* HERO SECTION - EXACT MATCH TO WORKHERO */
+.hero {
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px 100px 60px;
+  position: relative;
+  z-index: 1;
+  margin-top: -80px;
+  padding-top: 160px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 30px 100px 30px;
+    min-height: auto;
+    margin-top: 0;
+  }
+}
+
+.heroContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heroHeading {
+  font-family: "frogSerif", source-han-serif-sc, serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 100px;
+  line-height: 100px;
+  font-feature-settings: "ss03" on;
+  color: #000000;
+  margin-bottom: 40px;
+  letter-spacing: -0.01em;
+  max-width: 1100px;
+}
+
+@media (max-width: 1024px) {
+  .heroHeading {
+    font-size: 76px;
+    line-height: 76px;
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroHeading {
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+}
+
+.heroDescription {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #000000;
+  max-width: 800px;
+  letter-spacing: 0;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .heroDescription {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+/* SECTION STYLING */
+.section {
+  background-color: #ffffff;
+  padding: 120px 60px;
+}
+
+.sectionLight {
+  background-color: #ffffff;
+}
+
+.sectionDark {
+  background-color: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 30px;
+  }
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-family: "frogSerif", source-han-serif-sc, serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 72px;
+  line-height: 1.15;
+  font-feature-settings: "ss03" on;
+  color: #000000;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+  max-width: 1100px;
+}
+
+@media (max-width: 1024px) {
+  .sectionTitle {
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 36px;
+    margin-bottom: 12px;
+  }
+}
+
+.titleUnderline {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #9333ea 0%, #3b82f6 100%);
+  margin-bottom: 40px;
+}
+
+.sectionDescription {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #000000;
+  max-width: 800px;
+  opacity: 0.85;
+  margin-bottom: 48px;
+}
+
+/* VALUES GRID */
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .valuesGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.valueCard {
+  padding: 32px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.valueCard:hover {
+  border-color: #9333ea;
+  box-shadow: 0 10px 30px rgba(147, 51, 234, 0.1);
+}
+
+.valueIcon {
+  color: #9333ea;
+  margin-bottom: 16px;
+  transition: color 0.3s ease;
+}
+
+.valueCard:hover .valueIcon {
+  color: #3b82f6;
+}
+
+.valueTitle {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #000000;
+  margin-bottom: 12px;
+}
+
+.valueDescription {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #000000;
+  opacity: 0.8;
+}
+
+/* PRINCIPLES SECTION */
+.principleItem {
+  margin-bottom: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.principleItem.reverse {
+  direction: rtl;
+}
+
+.principleItem.reverse > * {
+  direction: ltr;
+}
+
+@media (max-width: 1024px) {
+  .principleItem {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .principleItem.reverse {
+    direction: ltr;
+  }
+}
+
+.principleNumber {
+  font-family: "frogSerif", source-han-serif-sc, serif;
+  font-size: 72px;
+  font-weight: 300;
+  background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+}
+
+.principleTitle {
+  font-family: "frogSerif", source-han-serif-sc, serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: #000000;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .principleTitle {
+    font-size: 32px;
+  }
+}
+
+.principleDescription {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #000000;
+  opacity: 0.85;
+}
+
+.principleImage {
+  width: 100%;
+  height: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+
+.principleImageImg {
+  object-fit: cover;
+  object-position: center;
+  width: 100% !important;
+  height: 100% !important;
+  position: relative !important;
+}
+
+/* PROCESS FLOW */
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .processGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+.processCard {
+  padding: 32px;
+  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.processCard:hover {
+  border-color: #9333ea;
+  background: linear-gradient(135deg, #f3e8ff 0%, #f0f9ff 100%);
+}
+
+.processIcon {
+  color: #9333ea;
+  margin: 0 auto 16px;
+  transition: color 0.3s ease;
+}
+
+.processCard:hover .processIcon {
+  color: #3b82f6;
+}
+
+.processPhase {
+  font-family: "frogSerif", source-han-serif-sc, serif;
+  font-weight: 300;
+  font-size: 18px;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+.processDescription {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #000000;
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+/* GROWTH SECTION */
+.growthGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .growthGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.growthCard {
+  padding: 40px;
+  background-color: #ffffff;
+  border: 2px solid #f0f0f0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.growthCard:hover {
+  border-color: #9333ea;
+  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+}
+
+.growthIcon {
+  color: #9333ea;
+  margin-bottom: 16px;
+  transition: color 0.3s ease;
+}
+
+.growthCard:hover .growthIcon {
+  color: #3b82f6;
+}
+
+.growthCategory {
+  font-family: "frogSerif", source-han-serif-sc, serif;
+  font-weight: 300;
+  font-size: 24px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.growthItems {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  space-y: 12px;
+}
+
+.growthItem {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+  opacity: 0.8;
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.growthItem:before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #9333ea;
+  font-weight: 600;
+}
+
+/* CULTURE QUOTES */
+.quotesContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .quotesContainer {
+    gap: 24px;
+  }
+}
+
+.quoteCard {
+  padding: 40px;
+  padding-left: 48px;
+  border-left: 4px solid #9333ea;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.quoteCard:hover {
+  background-color: #f3e8ff;
+  border-left-color: #3b82f6;
+}
+
+.quote {
+  font-family: "frogSerif", source-han-serif-sc, serif;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 1.6;
+  color: #000000;
+}
+
+@media (max-width: 768px) {
+  .quote {
+    font-size: 18px;
+  }
+}
+
+/* IMPACT SECTION */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .metricsGrid {
+    gap: 32px;
+  }
+}
+
+.metricCard {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.metricValue {
+  font-family: "frogSerif", source-han-serif-sc, serif;
+  font-weight: 300;
+  font-size: 64px;
+  background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .metricValue {
+    font-size: 48px;
+  }
+}
+
+.metricLabel {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #000000;
+  opacity: 0.85;
+}
+
+/* CTA SECTION */
+.ctaContainer {
+  text-align: center;
+  padding: 60px 0;
+}
+
+.ctaHeading {
+  font-family: "frogSerif", source-han-serif-sc, serif;
+  font-weight: 300;
+  font-size: 56px;
+  color: #000000;
+  margin-bottom: 24px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .ctaHeading {
+    font-size: 36px;
+  }
+}
+
+.ctaDescription {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #000000;
+  opacity: 0.85;
+  max-width: 600px;
+  margin: 0 auto 48px;
+  line-height: 1.7;
+}
+
+.ctaButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .ctaButtons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.ctaButton {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 16px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.ctaButtonPrimary {
+  background: linear-gradient(90deg, #9333ea 0%, #3b82f6 100%);
+  color: #ffffff;
+}
+
+.ctaButtonPrimary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.ctaButtonSecondary {
+  border: 2px solid #000000;
+  color: #000000;
+  background-color: transparent;
+}
+
+.ctaButtonSecondary:hover {
+  background-color: #000000;
+  color: #ffffff;
+}

@@ -7,21 +7,17 @@ import styles from '@/app/styles/work/ProjectMetadata.module.css';
 interface ProjectMetadataProps {
   services: string[];
   sectors: string[];
-  studio: string;
   theme: 'dark' | 'light';
 }
 
 export default function ProjectMetadata({
   services,
   sectors,
-  studio,
   theme,
 }: ProjectMetadataProps) {
-  const themeClass = theme === 'dark' ? styles.dark : styles.light;
-
   return (
     <motion.section
-      className={`${styles.section} ${themeClass}`}
+      className={styles.section}
       initial="hidden"
       whileInView="visible"
       variants={fadeInUpVariants}
@@ -51,10 +47,6 @@ export default function ProjectMetadata({
             </div>
           </div>
 
-          <div className={styles.metadataItem}>
-            <h3 className={styles.label}>Studio</h3>
-            <p className={styles.studioName}>{studio}</p>
-          </div>
         </div>
       </div>
     </motion.section>

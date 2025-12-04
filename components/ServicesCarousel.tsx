@@ -7,30 +7,30 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const services = [
   {
+    id: 3,
+    tagline: 'Master the Momentum',
+    headline: 'AI & Advanced Analytics, Process Optimization',
+    description: 'Deploy AI Agents, GenAI, and Predictive Intelligence to simplify and accelerate every business process.',
+    image: 'https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
+  },
+  {
     id: 1,
-    tagline: 'Engineering Consulting, Cloud & Infrastructure',
-    headline: 'Engineer the Unbreakable',
+    tagline: 'Engineer the Unbreakable',
+    headline: 'Engineering, Cloud & Infrastructure',
     description: 'Build System Architecture, DevOps, and Cloud Infrastructure That Scale and Perform Flawlessly.',
     image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
   },
   {
     id: 2,
-    tagline: 'Product Innovation & Digital Strategy',
-    headline: 'Launch the Limitless',
+    tagline: 'Launch the Limitless',
+    headline: 'Product Innovation & Digital Strategy',
     description: 'Drive Strategy, Design, and Go-to-Market velocity to redefine workflows and customer experience.',
     image: 'https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
   },
   {
-    id: 3,
-    tagline: 'AI & Advanced Analytics, Process Optimization',
-    headline: 'Master the Momentum',
-    description: 'Deploy AI Agents, GenAI, and Predictive Intelligence to simplify and accelerate every business process.',
-    image: 'https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
-  },
-  {
     id: 4,
-    tagline: 'Talent Solutions (Team as a Service)',
-    headline: 'Cultivate Confidence',
+    tagline: 'Cultivate Confidence',
+    headline: 'Talent Solutions (Team as a Service)',
     description: 'Secure Your Future with Plug-and-Play Tech Teams On Demand and Proactive Risk Management.',
     image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
   },

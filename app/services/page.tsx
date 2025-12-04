@@ -10,6 +10,22 @@ export default function ServicesPage() {
       <ServicesHero />
       <ServicesGrid />
       <ServiceDetailsSection
+        id="ai-solutions"
+        category="AI Solutions"
+        heading="AI That Works — For You."
+        description="Not just buzzwords. We build AI that boosts performance, simplifies decisions, and automates what slows you down."
+        offerings={[
+          'AI Agents for Support, Sales & Ops',
+          'Generative AI for Code & Content',
+          'Machine Learning & Predictive Intelligence',
+          'Decision Intelligence Systems',
+        ]}
+        imageTopLeft="/images/service-detail-13.jpg"
+        imageTopRight="/images/service-detail-14.jpg"
+        imageBottom="/images/service-detail-15.jpg"
+        layout="left-content"
+      />
+      <ServiceDetailsSection
         id="engineering-consulting"
         category="Engineering"
         heading="Build What's Next."
@@ -23,7 +39,8 @@ export default function ServicesPage() {
         imageTopLeft="/images/service-detail-1.jpg"
         imageTopRight="/images/service-detail-2.jpg"
         imageBottom="/images/service-detail-3.jpg"
-        layout="left-content"
+        layout="right-content"
+        isDark={true}
       />
       <ServiceDetailsSection
         id="product-management"
@@ -38,8 +55,7 @@ export default function ServicesPage() {
         imageTopLeft="/images/service-detail-4.jpg"
         imageTopRight="/images/service-detail-5.jpg"
         imageBottom="/images/service-detail-6.jpg"
-        layout="right-content"
-        isDark={true}
+        layout="left-content"
       />
       <ServiceDetailsSection
         id="cybersecurity-risk"
@@ -54,7 +70,8 @@ export default function ServicesPage() {
         imageTopLeft="/images/service-detail-7.jpg"
         imageTopRight="/images/service-detail-8.jpg"
         imageBottom="/images/service-detail-9.jpg"
-        layout="left-content"
+        layout="right-content"
+        isDark={true}
       />
       <ServiceDetailsSection
         id="business-process-optimization"
@@ -69,23 +86,6 @@ export default function ServicesPage() {
         imageTopLeft="/images/service-detail-10.jpg"
         imageTopRight="/images/service-detail-11.jpg"
         imageBottom="/images/service-detail-12.jpg"
-        layout="right-content"
-        isDark={true}
-      />
-      <ServiceDetailsSection
-        id="ai-solutions"
-        category="AI Solutions"
-        heading="AI That Works — For You."
-        description="Not just buzzwords. We build AI that boosts performance, simplifies decisions, and automates what slows you down."
-        offerings={[
-          'AI Agents for Support, Sales & Ops',
-          'Generative AI for Code & Content',
-          'Machine Learning & Predictive Intelligence',
-          'Decision Intelligence Systems',
-        ]}
-        imageTopLeft="/images/service-detail-13.jpg"
-        imageTopRight="/images/service-detail-14.jpg"
-        imageBottom="/images/service-detail-15.jpg"
         layout="left-content"
       />
       <ServiceDetailsSection

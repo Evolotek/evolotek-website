@@ -7,24 +7,24 @@ import styles from '@/app/styles/services/ServicesGrid.module.css';
 
 const services = [
   {
+    id: 'ai-advanced-analytics',
+    image: '/images/service-grid-3.jpg',
+    title: 'AI & Advanced Analytics',
+    description: 'AI agents, GenAI, and predictive intelligence made practical.',
+    position: 'left',
+  },
+  {
     id: 'engineering-consulting',
     image: '/images/service-grid-1.jpg',
-    title: 'Engineering Consulting',
+    title: 'Engineering',
     description: 'System architecture, API design, DevOps, and modernization that just works.',
-    position: 'left',
+    position: 'middle',
   },
   {
     id: 'product-management',
     image: '/images/service-grid-2.jpg',
     title: 'Product Management',
     description: 'Strategy, design, and go-to-market that bring ideas to life.',
-    position: 'middle',
-  },
-  {
-    id: 'ai-advanced-analytics',
-    image: '/images/service-grid-3.jpg',
-    title: 'AI & Advanced Analytics',
-    description: 'AI agents, GenAI, and predictive intelligence made practical.',
     position: 'right',
   },
   {

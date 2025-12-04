@@ -2,9 +2,9 @@
 
 import { motion } from 'framer-motion';
 import { fadeInUpVariants } from '@/app/utils/animations';
-import styles from '@/app/styles/careers/CareersHero.module.css';
+import styles from '@/app/styles/contact/ContactHero.module.css';
 
-export default function CareersHero() {
+export default function ContactHero() {
   return (
     <section className={styles.hero}>
       <div className={styles.container}>
@@ -15,7 +15,7 @@ export default function CareersHero() {
           variants={fadeInUpVariants}
           viewport={{ once: true, amount: 0.3 }}
         >
-          Let’s Build Cool Stuff.
+          Let's Make Something Awesome.
         </motion.h1>
 
         <motion.p
@@ -25,7 +25,7 @@ export default function CareersHero() {
           variants={fadeInUpVariants}
           viewport={{ once: true, amount: 0.3 }}
         >
-          We’re not just hiring — we’re building. Work with passionate engineers, creators, and thinkers solving global challenges through tech.
+          Have a bold idea? Let's make it real. Connect with our teams in the USA or India, your next big leap starts here.
         </motion.p>
       </div>
     </section>

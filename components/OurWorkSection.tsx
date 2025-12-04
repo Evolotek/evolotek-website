@@ -18,7 +18,7 @@ const projects = [
 		id: 2,
 		name: 'Zoomaya',
 		description:
-			'Enterprise-grade SAAS security platform that monitors, identifies, and prevents internal threats, fraud, and privilege abuse in cloud systems.',
+			'Enterprise-grade platform that monitors, identifies, and prevents internal threats, fraud, and privilege abuse in cloud systems.',
 		image:
 			'https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop', // Enterprise security dashboard
 		align: 'right',

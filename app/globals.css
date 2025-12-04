@@ -25,6 +25,8 @@
   body {
     @apply bg-background text-foreground;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    /* Default cursor - normal for all pages */
+    cursor: auto;
   }
 }
 
@@ -36,15 +38,19 @@
     width: 100%;
     height: 100%;
     
+    /* Darker gradient with more spread */
     background: linear-gradient(
-      90deg,
-      #172554,
-      #4c1d95,
+      135deg,
+      #0a0f2c,
+      #1a1147,
+      #2d1b69,
+      #1e1b4b,
+      #0f172a,
       #1e3a8a,
-      #4c1d95
+      #312e81
     );
-    background-size: 300% 100%;
-    animation: gradientShift 5s ease infinite;
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
     z-index: 0;
   }
 
@@ -52,12 +58,66 @@
     0% {
       background-position: 0% 50%;
     }
-    50% {
+    25% {
       background-position: 100% 50%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 50% 0%;
     }
     100% {
       background-position: 0% 50%;
     }
+  }
+
+  /* Cursor glow effect - only applied when parent has custom-cursor class */
+  .cursor-glow {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(147, 51, 234, 0.15) 0%,
+      rgba(124, 58, 237, 0.1) 25%,
+      rgba(79, 70, 229, 0.05) 50%,
+      transparent 70%
+    );
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+    mix-blend-mode: screen;
+  }
+
+  /* Keep cursor visible on homepage - use auto instead of none */
+  .custom-cursor {
+    cursor: auto !important;
+  }
+
+  .custom-cursor * {
+    cursor: auto !important;
+  }
+
+  /* Show normal cursor on navbar and interactive elements */
+  .custom-cursor nav,
+  .custom-cursor nav *,
+  .custom-cursor header,
+  .custom-cursor header *,
+  .custom-cursor a,
+  .custom-cursor button,
+  .custom-cursor [role="button"],
+  .custom-cursor input,
+  .custom-cursor textarea,
+  .custom-cursor select {
+    cursor: pointer !important;
+  }
+
+  .custom-cursor a:hover,
+  .custom-cursor button:hover {
+    cursor: pointer !important;
   }
 
   .font-serif {

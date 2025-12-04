@@ -11,11 +11,9 @@ interface ResultsSectionProps {
 }
 
 export default function ResultsSection({ results, theme }: ResultsSectionProps) {
-  const themeClass = theme === 'dark' ? styles.dark : styles.light;
-
   return (
     <motion.section
-      className={`${styles.section} ${themeClass}`}
+      className={styles.section}
       initial="hidden"
       whileInView="visible"
       variants={fadeInUpVariants}

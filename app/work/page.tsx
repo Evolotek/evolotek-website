@@ -30,7 +30,7 @@ export default function WorkPage() {
           }}
         >
           <ProjectSection
-            title={project.title}
+            title={`${project.title}\n${project.tagline}`}
             description={project.overview}
             imageSrc={project.coverImage}
             layout={index % 2 === 0 ? 'left' : 'right'}
