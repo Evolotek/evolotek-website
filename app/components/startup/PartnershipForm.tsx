@@ -97,25 +97,23 @@ export default function PartnershipForm({ isOpen, onClose }: PartnershipFormProp
     setStatus('submitting');
 
     try {
-      // Create FormData object for proper form encoding
-      const formDataToSend = new FormData();
-      
-      // Add all form fields to FormData
-      Object.entries(formData).forEach(([key, value]) => {
-        formDataToSend.append(key, value);
-      });
-
-      // Send to Formspree endpoint
-      // Replace xqarblyp with your actual Formspree form ID
+      // Use JSON endpoint for better CORS support
       const response = await fetch('https://formspree.io/f/xqarblyp', {
         method: 'POST',
-        body: formDataToSend,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
 
       if (!response.ok) {
+        const errorData = await response.json();
+        console.log('Error response:', errorData);
         throw new Error(`Form submission failed with status ${response.status}`);
       }
 
+      const data = await response.json();
       console.log('Partnership application submitted successfully');
       setStatus('success');
       

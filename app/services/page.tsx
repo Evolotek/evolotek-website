@@ -52,8 +52,8 @@ export default function ServicesPage() {
           'Design Thinking & UX Research',
           'MVP Launch & Product-Led Growth',
         ]}
-        imageTopLeft="/images/service-detail-4.jpg"
-        imageTopRight="/images/service-detail-5.jpg"
+        imageTopLeft="/images/service-detail-4.png"
+        imageTopRight="/images/service-detail-5.png"
         imageBottom="/images/service-detail-6.jpg"
         layout="left-content"
       />

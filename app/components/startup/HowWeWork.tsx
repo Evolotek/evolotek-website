@@ -28,18 +28,18 @@ const descriptionVariants = {
 };
 
 const topPhases = [
-  'Understand Startup Quos',
-  'Build the Right Team',
-  'Customer Experience',
-  'Identifying Growth Opportunities',
-  'Scaling Your Business',
+  { text: 'Understand Startup Quos', dotIndex: 0 },
+  { text: 'Build the Right Team', dotIndex: 2 },
+  { text: 'Customer Experience', dotIndex: 4 },
+  { text: 'Identifying Growth Opportunities', dotIndex: 6 },
+  { text: 'Scaling Your Business', dotIndex: 8 },
 ];
 
 const bottomPhases = [
-  'Strategy & Consulting',
-  'Engineering & Product Development',
-  'Business & Operations',
-  'Enabling Growth',
+  { text: 'Strategy & Consulting', dotIndex: 1 },
+  { text: 'Engineering & Product Development', dotIndex: 3 },
+  { text: 'Business & Operations', dotIndex: 5 },
+  { text: 'Enabling Growth', dotIndex: 7 },
 ];
 
 export default function HowWeWork() {
@@ -75,7 +75,6 @@ export default function HowWeWork() {
 
   const dotSpacing = 140;
   const svgWidth = 9 * dotSpacing + 100;
-  const centerY = 200;
   const dots = Array.from({ length: 9 }, (_, i) => ({
     x: 50 + i * dotSpacing,
     index: i,
@@ -107,32 +106,45 @@ export default function HowWeWork() {
         <div ref={wrapperRef} className={styles.timelineWrapper}>
           {/* Top Labels */}
           <div className={styles.topLabelsContainer}>
-            {topPhases.map((phase, index) => (
-              <div key={`top-${index}`} className={styles.topLabelWrapper}>
-                <motion.div
-                  className={styles.topLabel}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={
-                    animatedDots.includes(index)
-                      ? { opacity: 1, y: 0 }
-                      : { opacity: 0, y: 10 }
-                  }
-                  transition={{ duration: 0.5 }}
+            {topPhases.map((phase, index) => {
+              const dotX = dots[phase.dotIndex].x;
+              const leftPercent = (dotX / svgWidth) * 100;
+              
+              return (
+                <div 
+                  key={`top-${index}`} 
+                  className={styles.topLabelWrapper}
+                  style={{
+                    position: 'absolute',
+                    left: `${leftPercent}%`,
+                    transform: 'translateX(-50%)',
+                  }}
                 >
-                  {phase}
-                </motion.div>
-                <motion.div
-                  className={styles.topBar}
-                  initial={{ scaleY: 0 }}
-                  animate={
-                    animatedDots.includes(index)
-                      ? { scaleY: 1 }
-                      : { scaleY: 0 }
-                  }
-                  transition={{ duration: 0.4, ease: 'easeOut' }}
-                />
-              </div>
-            ))}
+                  <motion.div
+                    className={styles.topLabel}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={
+                      animatedDots.includes(phase.dotIndex)
+                        ? { opacity: 1, y: 0 }
+                        : { opacity: 0, y: 10 }
+                    }
+                    transition={{ duration: 0.5 }}
+                  >
+                    {phase.text}
+                  </motion.div>
+                  <motion.div
+                    className={styles.topBar}
+                    initial={{ scaleY: 0 }}
+                    animate={
+                      animatedDots.includes(phase.dotIndex)
+                        ? { scaleY: 1 }
+                        : { scaleY: 0 }
+                    }
+                    transition={{ duration: 0.4, ease: 'easeOut' }}
+                  />
+                </div>
+              );
+            })}
           </div>
 
           {/* SVG Timeline */}
@@ -179,12 +191,12 @@ export default function HowWeWork() {
               />
             ))}
 
-            {/* Vertical divider after dot 6 */}
+            {/* Vertical divider after dot 5 (between dots 5 and 6) - EXTENDED */}
             <line
               x1={dots[5].x + dotSpacing / 2}
-              y1="-100"
+              y1="-150"
               x2={dots[5].x + dotSpacing / 2}
-              y2="180"
+              y2="250"
               stroke="#FFFFFF"
               strokeWidth="2"
               strokeDasharray="5,5"
@@ -198,33 +210,45 @@ export default function HowWeWork() {
 
           {/* Bottom Labels */}
           <div className={styles.bottomLabelsContainer}>
-            <div style={{ flex: 1 }} />
-            {bottomPhases.map((phase, index) => (
-              <div key={`bottom-${index}`} className={styles.bottomLabelWrapper}>
-                <motion.div
-                  className={styles.bottomBar}
-                  initial={{ scaleY: 0 }}
-                  animate={
-                    animatedDots.includes(index + 1)
-                      ? { scaleY: 1 }
-                      : { scaleY: 0 }
-                  }
-                  transition={{ duration: 0.4, ease: 'easeOut' }}
-                />
-                <motion.div
-                  className={styles.bottomLabel}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={
-                    animatedDots.includes(index + 1)
-                      ? { opacity: 1, y: 0 }
-                      : { opacity: 0, y: -10 }
-                  }
-                  transition={{ duration: 0.5 }}
+            {bottomPhases.map((phase, index) => {
+              const dotX = dots[phase.dotIndex].x;
+              const leftPercent = (dotX / svgWidth) * 100;
+              
+              return (
+                <div 
+                  key={`bottom-${index}`} 
+                  className={styles.bottomLabelWrapper}
+                  style={{
+                    position: 'absolute',
+                    left: `${leftPercent}%`,
+                    transform: 'translateX(-50%)',
+                  }}
                 >
-                  {phase}
-                </motion.div>
-              </div>
-            ))}
+                  <motion.div
+                    className={styles.bottomBar}
+                    initial={{ scaleY: 0 }}
+                    animate={
+                      animatedDots.includes(phase.dotIndex)
+                        ? { scaleY: 1 }
+                        : { scaleY: 0 }
+                    }
+                    transition={{ duration: 0.4, ease: 'easeOut' }}
+                  />
+                  <motion.div
+                    className={styles.bottomLabel}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={
+                      animatedDots.includes(phase.dotIndex)
+                        ? { opacity: 1, y: 0 }
+                        : { opacity: 0, y: -10 }
+                    }
+                    transition={{ duration: 0.5 }}
+                  >
+                    {phase.text}
+                  </motion.div>
+                </div>
+              );
+            })}
           </div>
 
           {/* Phase Labels */}
@@ -234,10 +258,24 @@ export default function HowWeWork() {
             animate={inView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 1.8 }}
           >
-            <div className={`${styles.phaseLabel} ${styles.phaseLeft}`}>
+            <div 
+              className={styles.phaseLabel}
+              style={{
+                position: 'absolute',
+                left: `${((dots[0].x + dots[5].x) / 2) / svgWidth * 100}%`,
+                transform: 'translateX(-50%)',
+              }}
+            >
               Phase I - Product Development
             </div>
-            <div className={`${styles.phaseLabel} ${styles.phaseRight}`}>
+            <div 
+              className={styles.phaseLabel}
+              style={{
+                position: 'absolute',
+                left: `${((dots[6].x + dots[8].x) / 2) / svgWidth * 100}%`,
+                transform: 'translateX(-50%)',
+              }}
+            >
               Phase II - Post Product
             </div>
           </motion.div>

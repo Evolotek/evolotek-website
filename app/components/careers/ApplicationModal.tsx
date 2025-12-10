@@ -16,7 +16,7 @@ interface FormData {
   email: string;
   phone: string;
   linkedin: string;
-  resume: File | null;
+  resumeLink: string;
   coverLetter: string;
 }
 
@@ -30,7 +30,7 @@ export default function ApplicationModal({ isOpen, jobTitle, jobId, onClose }: A
     email: '',
     phone: '',
     linkedin: '',
-    resume: null,
+    resumeLink: '',
     coverLetter: '',
   });
 
@@ -38,8 +38,6 @@ export default function ApplicationModal({ isOpen, jobTitle, jobId, onClose }: A
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
-  const [isDragActive, setIsDragActive] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const firstInputRef = useRef<HTMLInputElement>(null);
   const applyButtonRef = useRef<HTMLButtonElement>(null);
@@ -59,7 +57,6 @@ export default function ApplicationModal({ isOpen, jobTitle, jobId, onClose }: A
   // Focus management
   useEffect(() => {
     if (isOpen && firstInputRef.current) {
-      // Small delay to ensure modal is rendered
       setTimeout(() => firstInputRef.current?.focus(), 100);
     }
   }, [isOpen]);
@@ -114,6 +111,15 @@ export default function ApplicationModal({ isOpen, jobTitle, jobId, onClose }: A
     };
   }, [isOpen]);
 
+  const isValidUrl = (url: string): boolean => {
+    try {
+      new URL(url);
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
@@ -131,10 +137,10 @@ export default function ApplicationModal({ isOpen, jobTitle, jobId, onClose }: A
       newErrors.phone = 'Phone number is required';
     }
 
-    if (!formData.resume) {
-      newErrors.resume = 'Resume is required';
-    } else if (formData.resume.size > 5 * 1024 * 1024) {
-      newErrors.resume = 'File size must be less than 5MB';
+    if (!formData.resumeLink.trim()) {
+      newErrors.resumeLink = 'Resume link is required';
+    } else if (!isValidUrl(formData.resumeLink)) {
+      newErrors.resumeLink = 'Please enter a valid URL (e.g., https://drive.google.com/...)';
     }
 
     setErrors(newErrors);
@@ -155,73 +161,6 @@ export default function ApplicationModal({ isOpen, jobTitle, jobId, onClose }: A
     }
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      processFile(file);
-    }
-  };
-
-  const processFile = (file: File) => {
-    if (file.size > 5 * 1024 * 1024) {
-      setErrors(prev => ({
-        ...prev,
-        resume: 'File size must be less than 5MB',
-      }));
-      return;
-    }
-
-    setFormData(prev => ({
-      ...prev,
-      resume: file,
-    }));
-    if (errors.resume) {
-      setErrors(prev => ({
-        ...prev,
-        resume: '',
-      }));
-    }
-    setIsDragActive(false);
-  };
-
-  const handleDrag = (e: React.DragEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (e.type === 'dragenter' || e.type === 'dragover') {
-      setIsDragActive(true);
-    } else if (e.type === 'dragleave') {
-      setIsDragActive(false);
-    }
-  };
-
-  const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIsDragActive(false);
-    const file = e.dataTransfer.files?.[0];
-    if (file) {
-      processFile(file);
-    }
-  };
-
-  const handleRemoveFile = () => {
-    setFormData(prev => ({
-      ...prev,
-      resume: null,
-    }));
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
-  };
-
-  const formatFileSize = (bytes: number): string => {
-    if (bytes === 0) return '0 Bytes';
-    const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i];
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitError(null);
@@ -233,42 +172,32 @@ export default function ApplicationModal({ isOpen, jobTitle, jobId, onClose }: A
     setIsSubmitting(true);
 
     try {
-      const submitData = new FormData();
-
-      if (jobId) submitData.append('jobId', jobId.toString());
-      submitData.append('jobTitle', jobTitle);
-      submitData.append('fullName', formData.fullName);
-      submitData.append('email', formData.email);
-      submitData.append('phone', formData.phone);
-      submitData.append('linkedin', formData.linkedin);
-      submitData.append('coverLetter', formData.coverLetter);
-
-      if (formData.resume) {
-        submitData.append('resume', formData.resume);
-      }
-
-      console.log('Application submitted:', {
-        jobId,
-        jobTitle,
-        fullName: formData.fullName,
-        email: formData.email,
-        phone: formData.phone,
-        linkedin: formData.linkedin || 'Not provided',
-        resume: formData.resume?.name,
-        resumeSize: formData.resume ? formatFileSize(formData.resume.size) : null,
-        coverLetter: formData.coverLetter || 'Not provided',
+      // Use Formspree JSON endpoint for better CORS handling
+      const response = await fetch('https://formspree.io/f/xgvgzzyg', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          linkedin: formData.linkedin || 'Not provided',
+          jobTitle: jobTitle,
+          resumeLink: formData.resumeLink,
+          message: formData.coverLetter || 'No cover letter provided',
+        }),
       });
 
-      // TODO: Connect to backend API endpoint
-      // const response = await fetch('/api/applications', {
-      //   method: 'POST',
-      //   body: submitData,
-      // });
+      console.log('Response status:', response.status);
 
-      // TODO: Consider using email service (SendGrid, Resend) to notify HR
-      // TODO: Store applications in database
+      if (!response.ok) {
+        throw new Error(`Form submission failed with status ${response.status}`);
+      }
 
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const data = await response.json();
+      console.log('Formspree response:', data);
 
       setIsSuccess(true);
 
@@ -277,7 +206,9 @@ export default function ApplicationModal({ isOpen, jobTitle, jobId, onClose }: A
       }, 3000);
     } catch (error) {
       console.error('Submission error:', error);
-      setSubmitError('Something went wrong. Please try again.');
+      setSubmitError(
+        'Failed to submit application. Please check your connection and try again, or email your application to careers@evolotek.ai'
+      );
       setIsSubmitting(false);
     }
   };
@@ -296,13 +227,9 @@ export default function ApplicationModal({ isOpen, jobTitle, jobId, onClose }: A
       email: '',
       phone: '',
       linkedin: '',
-      resume: null,
+      resumeLink: '',
       coverLetter: '',
     });
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
-    // Return focus to apply button (if available)
     setTimeout(() => {
       applyButtonRef.current?.focus();
     }, 100);
@@ -329,9 +256,9 @@ export default function ApplicationModal({ isOpen, jobTitle, jobId, onClose }: A
 
           <motion.div
             className={styles.modal}
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
+            exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2 }}
             ref={modalRef}
             role="dialog"
@@ -460,63 +387,28 @@ export default function ApplicationModal({ isOpen, jobTitle, jobId, onClose }: A
                     </div>
 
                     <div className={styles.formGroup}>
-                      <label htmlFor="resume" className={styles.label}>
-                        Resume <span className={styles.required}>*</span>
+                      <label htmlFor="resumeLink" className={styles.label}>
+                        Resume Link <span className={styles.required}>*</span>
                       </label>
-                      <div
-                        className={`${styles.fileUploadWrapper} ${isDragActive ? styles.dragActive : ''}`}
-                        onDragEnter={handleDrag}
-                        onDragLeave={handleDrag}
-                        onDragOver={handleDrag}
-                        onDrop={handleDrop}
-                      >
-                        <input
-                          type="file"
-                          id="resume"
-                          ref={fileInputRef}
-                          onChange={handleFileChange}
-                          accept=".pdf,.doc,.docx"
-                          disabled={isSubmitting}
-                          className={styles.fileInput}
-                          aria-describedby={errors.resume ? 'resume-error' : 'resume-help'}
-                        />
-                        {formData.resume ? (
-                          <div className={styles.fileSelected}>
-                            <div className={styles.fileInfo}>
-                              <span className={styles.fileName}>✓ {formData.resume.name}</span>
-                              <span className={styles.fileSize}>
-                                {formatFileSize(formData.resume.size)}
-                              </span>
-                            </div>
-                            <button
-                              type="button"
-                              className={styles.removeButton}
-                              onClick={handleRemoveFile}
-                              disabled={isSubmitting}
-                              aria-label={`Remove ${formData.resume.name}`}
-                            >
-                              Remove
-                            </button>
-                          </div>
-                        ) : (
-                          <button
-                            type="button"
-                            className={styles.fileButton}
-                            onClick={() => fileInputRef.current?.click()}
-                            disabled={isSubmitting}
-                          >
-                            Choose File or Drag & Drop
-                          </button>
-                        )}
-                        <p id="resume-help" className={styles.fileHint}>
-                          PDF, DOC, or DOCX • Max 5MB
-                        </p>
-                      </div>
-                      {errors.resume && (
-                        <span id="resume-error" className={styles.errorMessage} role="alert">
-                          {errors.resume}
+                      <input
+                        type="url"
+                        id="resumeLink"
+                        name="resumeLink"
+                        value={formData.resumeLink}
+                        onChange={handleInputChange}
+                        disabled={isSubmitting}
+                        className={`${styles.input} ${errors.resumeLink ? styles.error : ''}`}
+                        placeholder="https://drive.google.com/file/..."
+                        aria-describedby={errors.resumeLink ? 'resumeLink-error' : 'resumeLink-help'}
+                      />
+                      {errors.resumeLink && (
+                        <span id="resumeLink-error" className={styles.errorMessage} role="alert">
+                          {errors.resumeLink}
                         </span>
                       )}
+                      <p id="resumeLink-help" className={styles.fileHint}>
+                        Upload your resume to Google Drive, WeTransfer, or Dropbox and paste the shareable link
+                      </p>
                     </div>
 
                     <div className={styles.formGroup}>
@@ -530,7 +422,7 @@ export default function ApplicationModal({ isOpen, jobTitle, jobId, onClose }: A
                         onChange={handleInputChange}
                         disabled={isSubmitting}
                         className={styles.textarea}
-                        rows={5}
+                        rows={3}
                         placeholder="Tell us why you're interested in this role..."
                       />
                     </div>

@@ -1,10 +1,12 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { fadeInUpVariants } from '@/app/utils/animations';
 import styles from '@/app/styles/work/ProjectSection.module.css';
 
 interface ProjectSectionProps {
+  slug: string;
   title: string;
   description: string;
   imageSrc: string;
@@ -13,6 +15,7 @@ interface ProjectSectionProps {
 }
 
 export default function ProjectSection({
+  slug,
   title,
   description,
   imageSrc,
@@ -45,16 +48,16 @@ export default function ProjectSection({
         {description}
       </motion.p>
 
-      <motion.a
-        href="#"
-        className={styles.readMore}
+      <motion.div
         initial="hidden"
         whileInView="visible"
         variants={fadeInUpVariants}
         viewport={{ once: true, amount: 0.2 }}
       >
-        Read More <span>→</span>
-      </motion.a>
+        <Link href={`/work/${slug}`} className={styles.readMore}>
+          Read More <span>→</span>
+        </Link>
+      </motion.div>
     </div>
   );
 
@@ -66,7 +69,9 @@ export default function ProjectSection({
       variants={fadeInUpVariants}
       viewport={{ once: true, amount: 0.2 }}
     >
-      <img src={imageSrc} alt={title} className={styles.image} />
+      <Link href={`/work/${slug}`} className={styles.imageLink}>
+        <img src={imageSrc} alt={title} className={styles.image} />
+      </Link>
     </motion.div>
   );
 

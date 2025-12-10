@@ -1,0 +1,580 @@
+/* ============================================
+   SECTION CONTAINER & LAYOUT
+   ============================================ */
+.work-section {
+  position: relative;
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+  padding: 10rem 2rem;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .work-section {
+    padding: 8rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .work-section {
+    padding: 5rem 1.5rem;
+  }
+}
+
+.work-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* ============================================
+   HEADER STYLES
+   ============================================ */
+.work-header {
+  margin-bottom: 6rem;
+}
+
+.work-title-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.work-title {
+  font-family: 'Rosario', 'Libre Baskerville', serif;
+  font-size: 5.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 1024px) {
+  .work-title {
+    font-size: 4.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .work-title {
+    font-size: 3rem;
+  }
+}
+
+.work-title-underline {
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  height: 4px;
+  width: 80px;
+  background: linear-gradient(90deg, #c026d3 0%, #4f46e5 100%);
+  border-radius: 2px;
+  transform-origin: left;
+}
+
+.work-subtitle {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.125rem;
+  color: #9ca3af;
+  max-width: 42rem;
+  line-height: 1.8;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .work-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   BENTO GRID SETUP
+   ============================================ */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* ============================================
+   PROJECT CARD STYLES
+   ============================================ */
+.project-card {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 500px;
+}
+
+.project-card-large {
+  grid-column: span 2;
+}
+
+.project-card-standard {
+  grid-column: span 1;
+}
+
+@media (max-width: 1024px) {
+  .project-card {
+    min-height: 450px;
+  }
+
+  .project-card-large {
+    grid-column: span 2;
+  }
+
+  .project-card-standard {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    grid-column: span 1 !important;
+    min-height: 400px;
+  }
+}
+
+.project-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* ============================================
+   BADGE STYLES
+   ============================================ */
+.project-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 20;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  font-family: 'Rosario', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #a78bfa;
+}
+
+/* ============================================
+   IMAGE CONTAINER & OVERLAYS
+   ============================================ */
+.project-image-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.project-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
+  z-index: 5;
+}
+
+.project-border {
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  background-image: linear-gradient(rgba(17, 24, 39, 0.6), rgba(17, 24, 39, 0.6)),
+                    linear-gradient(90deg, #c026d3 0%, #4f46e5 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-radius: 1.5rem;
+  z-index: 6;
+  pointer-events: none;
+}
+
+/* ============================================
+   CONTENT POSITIONING & TYPOGRAPHY
+   ============================================ */
+.project-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2.5rem;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .project-content {
+    padding: 2rem;
+  }
+}
+
+.project-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.project-category {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #a78bfa;
+  letter-spacing: 0.05em;
+}
+
+.project-year {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+.project-title {
+  font-family: 'Rosario', 'Libre Baskerville', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.01em;
+}
+
+.project-card-large .project-title {
+  font-size: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .project-title {
+    font-size: 1.75rem;
+  }
+
+  .project-card-large .project-title {
+    font-size: 2rem;
+  }
+}
+
+.project-description {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: #d1d5db;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+  max-width: 90%;
+}
+
+@media (max-width: 768px) {
+  .project-description {
+    font-size: 0.9375rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.project-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.project-cta span {
+  display: inline-block;
+  font-size: 1.25rem;
+}
+
+/* ============================================
+   HOVER EFFECTS & TRANSITIONS
+   ============================================ */
+.project-card {
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:hover {
+  border-color: rgba(147, 51, 234, 0.5);
+  box-shadow: 0 20px 60px rgba(147, 51, 234, 0.2);
+}
+
+/* ============================================
+   BACKGROUND FLOATING ELEMENTS
+   ============================================ */
+.work-bg-elements {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.work-bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.work-bg-circle-1 {
+  width: 500px;
+  height: 500px;
+  top: -10%;
+  left: -10%;
+  background: radial-gradient(circle, #c026d3 0%, transparent 70%);
+}
+
+.work-bg-circle-2 {
+  width: 600px;
+  height: 600px;
+  bottom: -15%;
+  right: -10%;
+  background: radial-gradient(circle, #4f46e5 0%, transparent 70%);
+}
+
+/* ============================================
+   FOOTER CTA
+   ============================================ */
+.work-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.view-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #c026d3 0%, #4f46e5 100%);
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.view-all-btn:hover {
+  background: linear-gradient(135deg, #a020b8 0%, #4338ca 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(192, 38, 211, 0.3);
+}
+
+.view-all-btn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+.project-card:focus-visible {
+  outline: 2px solid #c026d3;
+  outline-offset: 2px;
+}
+
+a:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-image,
+  .project-gradient-overlay,
+  .project-meta,
+  .project-title,
+  .project-description,
+  .project-cta,
+  .work-bg-circle {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .project-card {
+    transform: none !important;
+  }
+}
+
+/* ============================================
+   RESPONSIVE FINE-TUNING
+   ============================================ */
+@media (max-width: 1024px) {
+  .bento-grid {
+    gap: 1.5rem;
+  }
+
+  .project-content {
+    padding: 2rem;
+  }
+
+  .project-title {
+    font-size: 1.75rem;
+  }
+
+  .project-card-large .project-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .work-bg-circle-1,
+  .work-bg-circle-2 {
+    opacity: 0.08;
+  }
+
+  .project-card {
+    min-height: 400px;
+  }
+
+  .project-content {
+    padding: 1.5rem;
+  }
+
+  .project-badge {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+
+  .project-title {
+    font-size: 1.5rem;
+  }
+
+  .project-description {
+    display: none;
+  }
+}
+
+/* ============================================
+   MOBILE TOUCH OPTIMIZATIONS
+   ============================================ */
+
+/* On mobile devices, show content on tap instead of hover */
+@media (max-width: 768px) {
+  /* Disable 3D tilt effect on mobile */
+  .project-card {
+    perspective: none;
+  }
+
+  /* Make content visible by default on mobile */
+  .project-meta {
+    opacity: 1 !important;
+    y: 0 !important;
+  }
+
+  .project-title {
+    y: 0 !important;
+  }
+
+  .project-description {
+    opacity: 1 !important;
+    y: 0 !important;
+    display: block !important;
+  }
+
+  .project-cta {
+    opacity: 1 !important;
+    x: 0 !important;
+  }
+
+  /* Increase gradient overlay opacity on mobile for better readability */
+  .project-gradient-overlay {
+    opacity: 0.6 !important;
+  }
+
+  /* Slightly increase image scale on mobile for visual interest */
+  .project-image {
+    scale: 1.05;
+  }
+
+  /* Add touch feedback */
+  .project-card {
+    transition: all 0.3s ease;
+  }
+
+  .project-card:active {
+    transform: scale(0.98);
+  }
+
+  /* Disable hover on touch devices */
+  @media (hover: none) {
+    .project-card:hover {
+      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-card:active {
+      border-color: rgba(147, 51, 234, 0.5);
+      box-shadow: 0 20px 60px rgba(147, 51, 234, 0.2);
+    }
+  }
+}
+
+/* For devices that support hover (desktop/tablet with mouse) */
+@media (hover: hover) {
+  .project-description {
+    display: none !important;
+  }
+
+  .project-cta {
+    opacity: 0 !important;
+  }
+
+  .project-card:hover .project-description {
+    display: block !important;
+  }
+
+  .project-card:hover .project-cta {
+    opacity: 1 !important;
+  }
+
+  .project-card:hover {
+    border-color: rgba(147, 51, 234, 0.5);
+    box-shadow: 0 20px 60px rgba(147, 51, 234, 0.2);
+  }
+}

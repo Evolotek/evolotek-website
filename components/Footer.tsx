@@ -24,6 +24,7 @@ export function Footer() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.3 }}
             >
               <h2 className="text-4xl md:text-5xl font-serif text-white mb-4">
                 Ready to Define Your Edge?
@@ -37,12 +38,13 @@ export function Footer() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.1, duration: 0.3 }}
               className="flex flex-col justify-between"
             >
               <div className="mb-8">
                 <Link
                   href="/contact"
+                  prefetch={true}
                   className="inline-block border-2 border-white text-white px-10 py-3 text-lg font-medium hover:bg-white hover:text-purple-900 transition-all duration-300 mb-6"
                 >
                   Get in touch
@@ -55,6 +57,7 @@ export function Footer() {
                 </p>
                 <Link
                   href="/careers"
+                  prefetch={true}
                   className="inline-flex items-center text-white text-base font-medium hover:gap-3 gap-2 transition-all duration-300"
                 >
                   Join our team
@@ -99,11 +102,11 @@ export function Footer() {
 
               {/* Legal Links & Copyright */}
               <div className="flex flex-wrap items-center justify-center md:justify-end gap-4 text-sm text-gray-300">
-                <Link href="/privacy" className="hover:text-white transition-colors">
+                <Link href="/privacy" prefetch={true} className="hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
                 <span className="text-gray-500">|</span>
-                <Link href="/terms" className="hover:text-white transition-colors">
+                <Link href="/terms" prefetch={true} className="hover:text-white transition-colors">
                   Terms of Use
                 </Link>
                 <span className="text-gray-500">|</span>

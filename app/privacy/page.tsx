@@ -295,8 +295,8 @@ export default function PrivacyPolicyPage() {
                 If you have questions about this Privacy Policy, please contact:
               </p>
               <div className="bg-white rounded-lg p-6 border border-gray-200">
-                <p className="text-gray-900 font-semibold">Evolotek Legal Team</p>
-                <p className="text-gray-700">Email: <a href="mailto:legal@evolotek.com" className="text-purple-600 hover:text-purple-700">legal@evolotek.com</a></p>
+                <p className="text-gray-900 font-semibold">Evolotek Team</p>
+                <p className="text-gray-700">Email: <a href="mailto:info@evolotek.ai" className="text-purple-600 hover:text-purple-700">info@evolotek.ai</a></p>
                 <p className="text-gray-700 mt-4">Locations: USA • ISRAEL • INDIA</p>
               </div>
             </motion.section>

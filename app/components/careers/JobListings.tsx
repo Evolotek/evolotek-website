@@ -218,6 +218,7 @@ export default function JobListings() {
   };
 
   const handleApplyClick = (e: React.MouseEvent, jobId: number, jobTitle: string) => {
+    e.preventDefault();
     e.stopPropagation();
     setSelectedJob({ id: jobId, title: jobTitle });
     setIsModalOpen(true);
@@ -314,13 +315,13 @@ export default function JobListings() {
                     </div>
                   )}
 
-                  <a 
-                    href="#" 
+                  <button 
                     className={styles.applyLink}
                     onClick={(e) => handleApplyClick(e, job.id, job.title)}
+                    type="button"
                   >
                     Apply Now <span>→</span>
-                  </a>
+                  </button>
                 </motion.div>
               ))}
             </div>

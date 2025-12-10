@@ -24,7 +24,7 @@ export function Navigation() {
   const isDarkText = !isGradientBg;
 
   const navLinks = [
-    { href: '/insights', label: 'Insights' },
+    // { href: '/insights', label: 'Insights' },
     { href: '/startup', label: 'Startup' },
     { href: '/work', label: 'Work' },
     { href: '/services', label: 'Services' },

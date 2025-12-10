@@ -82,7 +82,7 @@ export default function Home() {
           {/* Centered Define Your Edge */}
           <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
             <div className="max-w-[1400px] mx-auto">
-              <h1 className="text-white text-8xl md:text-9xl lg:text-[10rem] font-serif leading-[0.85] tracking-[-0.03em] text-center">
+              <h1 className="text-white text-8xl md:text-9xl lg:text-[10rem] font-serif leading-[0.85] tracking-[-0.01em] text-center">
                 Define Your Edge
               </h1>
             </div>
