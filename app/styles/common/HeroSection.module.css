@@ -1,0 +1,48 @@
+.hero {
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding: 80px 24px;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 80px 48px;
+  }
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-family: 'Rosario', serif;
+  font-weight: 500;
+  font-size: 96px;
+  line-height: 100%;
+  color: #000000;
+  margin-bottom: 32px;
+  letter-spacing: 0%;
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 48px;
+  }
+}
+
+.description {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  color: #000000;
+  max-width: 1137px;
+  letter-spacing: 0%;
+}
+
+@media (max-width: 768px) {
+  .description {
+    font-size: 16px;
+  }
+}

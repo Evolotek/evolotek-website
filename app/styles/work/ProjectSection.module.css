@@ -1,0 +1,192 @@
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 60px;
+}
+
+.section.light {
+  background-color: #f5f5f5;
+}
+
+.section.dark {
+  background-color: #1a1a1a;
+}
+
+@media (max-width: 768px) {
+  .section {
+    min-height: auto;
+    padding: 60px 30px;
+  }
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.contentLeft {
+  order: 1;
+}
+
+.contentRight {
+  order: 2;
+}
+
+@media (max-width: 768px) {
+  .contentLeft,
+  .contentRight {
+    order: auto !important;
+  }
+}
+
+.title {
+  font-family: 'Rosario', serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.section.light .title {
+  color: #000000;
+}
+
+.section.dark .title {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 36px;
+  }
+}
+
+.description {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.section.light .description {
+  color: #333333;
+}
+
+.section.dark .description {
+  color: #cccccc;
+}
+
+@media (max-width: 768px) {
+  .description {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+}
+
+.readMore {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.section.light .readMore {
+  color: #000000;
+}
+
+.section.dark .readMore {
+  color: #ffffff;
+}
+
+.readMore:hover {
+  gap: 12px;
+}
+
+.readMore span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.readMore:hover span {
+  transform: translateX(4px);
+}
+
+.imageWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.imageLeft {
+  order: 1;
+}
+
+.imageRight {
+  order: 2;
+}
+
+@media (max-width: 768px) {
+  .imageLeft,
+  .imageRight {
+    order: auto !important;
+  }
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+.imageLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.section.light .image {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.section.dark .image {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.image:hover {
+  transition: transform 0.3s ease;
+  transform: scale(1.02);
+}
