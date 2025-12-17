@@ -4,24 +4,24 @@
 .work-section {
   position: relative;
   background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
-  padding: 10rem 2rem;
+  padding: 6rem 2rem;
   overflow: hidden;
 }
 
 @media (max-width: 1024px) {
   .work-section {
-    padding: 8rem 2rem;
+    padding: 5rem 2rem;
   }
 }
 
 @media (max-width: 768px) {
   .work-section {
-    padding: 5rem 1.5rem;
+    padding: 4rem 1.5rem;
   }
 }
 
 .work-container {
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
   position: relative;
   z-index: 10;
@@ -31,18 +31,18 @@
    HEADER STYLES
    ============================================ */
 .work-header {
-  margin-bottom: 6rem;
+  margin-bottom: 3.5rem;
 }
 
 .work-title-wrapper {
   position: relative;
   display: inline-block;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .work-title {
   font-family: 'Rosario', 'Libre Baskerville', serif;
-  font-size: 5.5rem;
+  font-size: 4rem;
   font-weight: 700;
   color: #ffffff;
   line-height: 1;
@@ -52,22 +52,22 @@
 
 @media (max-width: 1024px) {
   .work-title {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
   }
 }
 
 @media (max-width: 768px) {
   .work-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 
 .work-title-underline {
   position: absolute;
-  bottom: -1rem;
+  bottom: -0.75rem;
   left: 0;
-  height: 4px;
-  width: 80px;
+  height: 3px;
+  width: 70px;
   background: linear-gradient(90deg, #c026d3 0%, #4f46e5 100%);
   border-radius: 2px;
   transform-origin: left;
@@ -75,57 +75,61 @@
 
 .work-subtitle {
   font-family: 'Roboto', sans-serif;
-  font-size: 1.125rem;
+  font-size: 1.05rem;
   color: #9ca3af;
   max-width: 42rem;
-  line-height: 1.8;
-  margin-top: 2rem;
+  line-height: 1.7;
+  margin-top: 1.5rem;
 }
 
 @media (max-width: 768px) {
   .work-subtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 }
 
 /* ============================================
-   BENTO GRID SETUP
+   BENTO GRID SETUP - OPTIMIZED FOR UNIFORM SIZING
    ============================================ */
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  margin-bottom: 4rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 @media (max-width: 1024px) {
   .bento-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 1.25rem;
   }
 }
 
 @media (max-width: 768px) {
   .bento-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 }
 
 /* ============================================
-   PROJECT CARD STYLES
+   PROJECT CARD STYLES - UNIFORM SIZING
    ============================================ */
 .project-card {
   position: relative;
-  border-radius: 1.5rem;
+  border-radius: 1.25rem;
   overflow: hidden;
   cursor: pointer;
   transition: all 0.3s ease;
-  min-height: 500px;
+  height: 380px;
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .project-card-large {
-  grid-column: span 2;
+  grid-column: span 1;
 }
 
 .project-card-standard {
@@ -134,23 +138,20 @@
 
 @media (max-width: 1024px) {
   .project-card {
-    min-height: 450px;
-  }
-
-  .project-card-large {
-    grid-column: span 2;
-  }
-
-  .project-card-standard {
-    grid-column: span 1;
+    height: 360px;
   }
 }
 
 @media (max-width: 768px) {
   .project-card {
     grid-column: span 1 !important;
-    min-height: 400px;
+    height: 340px;
   }
+}
+
+.project-card:hover {
+  border-color: rgba(147, 51, 234, 0.5);
+  box-shadow: 0 20px 60px rgba(147, 51, 234, 0.2);
 }
 
 .project-card-inner {
@@ -167,11 +168,11 @@
    ============================================ */
 .project-badge {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+  top: 1.25rem;
+  right: 1.25rem;
   z-index: 20;
-  width: 3rem;
-  height: 3rem;
+  width: 2.75rem;
+  height: 2.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -180,7 +181,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   font-family: 'Rosario', serif;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: #a78bfa;
 }
@@ -218,7 +219,7 @@
                     linear-gradient(90deg, #c026d3 0%, #4f46e5 100%);
   background-origin: border-box;
   background-clip: padding-box, border-box;
-  border-radius: 1.5rem;
+  border-radius: 1.25rem;
   z-index: 6;
   pointer-events: none;
 }
@@ -231,13 +232,13 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 2.5rem;
+  padding: 1.75rem;
   z-index: 10;
 }
 
 @media (max-width: 768px) {
   .project-content {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 }
 
@@ -245,60 +246,61 @@
   display: flex;
   gap: 1rem;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .project-category {
   font-family: 'Roboto', sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   text-transform: uppercase;
-  color: #a78bfa;
+  color: #00d4ff;
   letter-spacing: 0.05em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .project-year {
   font-family: 'Roboto', sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: #9ca3af;
 }
 
 .project-title {
   font-family: 'Rosario', 'Libre Baskerville', serif;
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: #ffffff;
   line-height: 1.2;
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.875rem 0;
   letter-spacing: -0.01em;
 }
 
 .project-card-large .project-title {
-  font-size: 2.5rem;
+  font-size: 1.75rem;
 }
 
 @media (max-width: 768px) {
   .project-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 
   .project-card-large .project-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 
 .project-description {
   font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
+  font-size: 0.9375rem;
   color: #d1d5db;
-  line-height: 1.6;
-  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+  margin: 0 0 1.125rem 0;
   max-width: 90%;
 }
 
 @media (max-width: 768px) {
   .project-description {
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     margin-bottom: 1rem;
   }
 }
@@ -306,9 +308,9 @@
 .project-cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.625rem;
   font-family: 'Roboto', sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #ffffff;
   text-decoration: none;
@@ -316,22 +318,7 @@
 
 .project-cta span {
   display: inline-block;
-  font-size: 1.25rem;
-}
-
-/* ============================================
-   HOVER EFFECTS & TRANSITIONS
-   ============================================ */
-.project-card {
-  background: rgba(17, 24, 39, 0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
-.project-card:hover {
-  border-color: rgba(147, 51, 234, 0.5);
-  box-shadow: 0 20px 60px rgba(147, 51, 234, 0.2);
+  font-size: 1.125rem;
 }
 
 /* ============================================
@@ -375,7 +362,7 @@
 .work-footer {
   display: flex;
   justify-content: center;
-  margin-top: 4rem;
+  margin-top: 3rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -384,11 +371,11 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 1rem 2rem;
+  padding: 0.875rem 1.75rem;
   background: linear-gradient(135deg, #c026d3 0%, #4f46e5 100%);
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   border: none;
   border-radius: 2rem;
@@ -445,19 +432,19 @@ a:focus-visible {
    ============================================ */
 @media (max-width: 1024px) {
   .bento-grid {
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .project-content {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 
   .project-title {
-    font-size: 1.75rem;
+    font-size: 1.625rem;
   }
 
   .project-card-large .project-title {
-    font-size: 2rem;
+    font-size: 1.625rem;
   }
 }
 
@@ -468,7 +455,7 @@ a:focus-visible {
   }
 
   .project-card {
-    min-height: 400px;
+    height: 340px;
   }
 
   .project-content {
@@ -482,7 +469,7 @@ a:focus-visible {
   }
 
   .project-title {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
   }
 
   .project-description {

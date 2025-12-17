@@ -275,7 +275,7 @@ export default function TermsOfUsePage() {
                 <p className="text-gray-900 font-semibold">Evolotek Department</p>
                 <p className="text-gray-700">Email: <a href="mailto:info@evolotek.ai" className="text-purple-600 hover:text-purple-700">info@evolotek.ai</a></p>
                 <p className="text-gray-700 mt-4">Global Headquarters</p>
-                <p className="text-gray-700">USA • ISRAEL • INDIA</p>
+                <p className="text-gray-700">USA • INDIA</p>
               </div>
             </motion.section>
           </div>

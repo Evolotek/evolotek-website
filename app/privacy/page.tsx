@@ -112,7 +112,7 @@ export default function PrivacyPolicyPage() {
             >
               <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">Introduction</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Evolotek ("Company," "we," "us," or "our") operates as a reinvention and experience partner, delivering strategy, creativity, data, and AI-powered solutions. This Privacy Policy explains how we collect, use, disclose, and otherwise handle your information when you visit our website, use our services, or interact with our brand.
+                Evolotek operates as a reinvention and experience partner, delivering strategy, creativity, data, and AI-powered solutions. This Privacy Policy explains how we collect, use, disclose, and otherwise handle your information when you visit our website, use our services, or interact with our brand.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 Your privacy is important to us. We are committed to transparency about our data practices and protecting your personal information in accordance with applicable privacy laws including GDPR, CCPA, and other regulations.
@@ -297,7 +297,7 @@ export default function PrivacyPolicyPage() {
               <div className="bg-white rounded-lg p-6 border border-gray-200">
                 <p className="text-gray-900 font-semibold">Evolotek Team</p>
                 <p className="text-gray-700">Email: <a href="mailto:info@evolotek.ai" className="text-purple-600 hover:text-purple-700">info@evolotek.ai</a></p>
-                <p className="text-gray-700 mt-4">Locations: USA • ISRAEL • INDIA</p>
+                <p className="text-gray-700 mt-4">Locations: USA • INDIA</p>
               </div>
             </motion.section>
           </div>

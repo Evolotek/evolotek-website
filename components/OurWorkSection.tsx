@@ -10,7 +10,7 @@ const projects = [
 		id: 1,
 		name: 'Cybrella',
 		description:
-			'Advanced cybersecurity solutions specializing in IoT, mobile, cloud, and data security with proactive cyber defense and comprehensive fraud prevention.',
+			'Advanced cybersecurity solutions specializing in IoT, mobile, cloud, and data security.',
 		image:
 			'https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
 		category: 'Cybersecurity',
@@ -20,7 +20,7 @@ const projects = [
 		id: 2,
 		name: 'Zoomaya',
 		description:
-			'Enterprise-grade platform that monitors, identifies, and prevents internal threats, fraud, and privilege abuse in cloud systems.',
+			'Enterprise platform for monitoring internal threats and fraud prevention.',
 		image:
 			'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
 		category: 'Analytics',
@@ -30,7 +30,7 @@ const projects = [
 		id: 3,
 		name: 'Sipstr',
 		description:
-			'Revolutionary alcohol delivery platform with smart inventory management and seamless ordering experience.',
+			'Revolutionary alcohol delivery platform with smart inventory management.',
 		image:
 			'https://images.pexels.com/photos/602750/pexels-photo-602750.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
 		category: 'E-commerce',
@@ -40,7 +40,7 @@ const projects = [
 		id: 4,
 		name: 'VeraEaty',
 		description:
-			'AI-powered meal planning assistant that creates personalized meal plans, smart grocery lists, and helps minimize food waste.',
+			'AI-powered meal planning assistant with personalized meal plans.',
 		image:
 			'https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
 		category: 'AI & Food',
@@ -50,7 +50,7 @@ const projects = [
 		id: 5,
 		name: 'Briskpe',
 		description:
-			'All-in-one global payment platform enabling businesses to receive and process international transactions seamlessly.',
+			'Global payment platform for seamless international transactions.',
 		image:
 			'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
 		category: 'Fintech',
@@ -100,7 +100,6 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 		setIsHovered(false);
 	};
 
-	// Mobile touch handlers
 	const handleTouchStart = () => {
 		setIsTouched(true);
 	};
@@ -109,7 +108,6 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 		setIsTouched(false);
 	};
 
-	// Determine if hovering (desktop) or touched (mobile)
 	const isActive = isHovered || isTouched;
 
 	return (
@@ -137,7 +135,6 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 		>
 			<Link href="/work" className="block h-full">
 				<div className="project-card-inner">
-					{/* Project Number Badge */}
 					<motion.div
 						className="project-badge"
 						initial={{ scale: 0 }}
@@ -147,7 +144,6 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 						{String(index + 1).padStart(2, '0')}
 					</motion.div>
 
-					{/* Image Container */}
 					<div className="project-image-container">
 						<motion.img
 							src={project.image}
@@ -159,7 +155,6 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 							transition={{ duration: 0.6, ease: 'easeOut' }}
 						/>
 
-						{/* Gradient Overlay */}
 						<motion.div
 							className="project-gradient-overlay"
 							animate={{
@@ -168,7 +163,6 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 							transition={{ duration: 0.4 }}
 						/>
 
-						{/* Animated Border */}
 						<motion.div
 							className="project-border"
 							animate={{
@@ -177,7 +171,6 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 						/>
 					</div>
 
-					{/* Content */}
 					<div className="project-content">
 						<motion.div
 							className="project-meta"
@@ -219,7 +212,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 							}}
 							transition={{ duration: 0.4, delay: 0.15 }}
 						>
-							<span>View Project</span>
+							<span>Learn More</span>
 							<motion.span
 								animate={{ x: isActive ? 5 : 0 }}
 								transition={{ duration: 0.3 }}
@@ -265,7 +258,6 @@ export function OurWorkSection() {
 					viewport={{ once: true, margin: '-100px' }}
 					variants={containerVariants}
 				>
-					{/* Header */}
 					<motion.div variants={titleVariants} className="work-header">
 						<div className="work-title-wrapper">
 							<h2 className="work-title">Our Work</h2>
@@ -283,14 +275,12 @@ export function OurWorkSection() {
 						</p>
 					</motion.div>
 
-					{/* Bento Grid */}
 					<div className="bento-grid">
 						{projects.map((project, index) => (
 							<ProjectCard key={project.id} project={project} index={index} />
 						))}
 					</div>
 
-					{/* View All Projects CTA */}
 					<motion.div
 						className="work-footer"
 						initial={{ opacity: 0, y: 30 }}
@@ -299,7 +289,7 @@ export function OurWorkSection() {
 						transition={{ duration: 0.6, delay: 0.4 }}
 					>
 						<Link href="/work" className="view-all-btn">
-							<span>View All Projects</span>
+							<span>View All Work</span>
 							<motion.span
 								animate={{ x: [0, 5, 0] }}
 								transition={{ duration: 1.5, repeat: Infinity }}
@@ -311,7 +301,6 @@ export function OurWorkSection() {
 				</motion.div>
 			</div>
 
-			{/* Floating Background Elements */}
 			<div className="work-bg-elements">
 				<motion.div
 					className="work-bg-circle work-bg-circle-1"

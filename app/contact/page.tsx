@@ -26,7 +26,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-gray-900 font-semibold mb-2">Locations</h3>
-                    <p className="text-gray-600">USA • ISRAEL • INDIA</p>
+                    <p className="text-gray-600">USA • INDIA</p>
                   </div>
                 </div>
               </div>

@@ -9,6 +9,7 @@ import Image from 'next/image';
 export function Navigation() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +19,10 @@ export function Navigation() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
 
   const isHomePage = pathname === '/';
   const isGradientBg = isHomePage;
@@ -33,6 +38,10 @@ export function Navigation() {
     { href: '/contact', label: 'Contact Us' },
   ];
 
+  const handleLinkClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <header
       className={`relative z-50 transition-all duration-300 ${
@@ -44,7 +53,7 @@ export function Navigation() {
       }`}
     >
       <nav className="max-w-[1400px] mx-auto px-6 md:px-12 py-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group relative">
+        <Link href="/" className="flex items-center gap-2 group relative" onClick={handleLinkClick}>
           <Image
             src="/images/evolotek-logo.png"
             alt="Evolotek Logo"
@@ -76,6 +85,7 @@ export function Navigation() {
         </div>
 
         <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className={`lg:hidden flex flex-col gap-1.5 w-8 ${
             isGradientBg ? 'text-white' : isDarkText ? 'text-black' : 'text-black'
           }`}
@@ -85,6 +95,29 @@ export function Navigation() {
           <span className="block h-0.5 bg-current"></span>
         </button>
       </nav>
+
+      {isMobileMenuOpen && (
+        <div
+          className={`fixed inset-0 top-[76px] lg:hidden ${
+            isGradientBg ? 'bg-black/95' : 'bg-white'
+          }`}
+        >
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-8 flex flex-col gap-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={handleLinkClick}
+                className={`text-2xl font-light py-4 ${
+                  isGradientBg ? 'text-white' : 'text-black'
+                } ${pathname === link.href ? 'opacity-100 underline' : 'opacity-80'}`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </header>
   );
 }
