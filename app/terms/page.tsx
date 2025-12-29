@@ -80,7 +80,7 @@ export default function TermsOfUsePage() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeInUpVariants}
-            className="lg:col-span-1 sticky top-20 h-fit"
+            className="lg:col-span-1 lg:sticky lg:top-20 h-fit"
           >
             <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
               <h3 className="font-semibold text-gray-900 mb-4">Contents</h3>

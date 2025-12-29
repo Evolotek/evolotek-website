@@ -36,53 +36,57 @@ export default function ServiceDetailsSection({
   const containerClass = isDark ? styles.containerDark : (layout === 'right-content' ? styles.containerReverse : '');
   const contentDarkClass = isDark ? styles.contentDark : '';
 
-  const renderContent = () => (
-    <div className={`${contentClass} ${contentDarkClass}`}>
-      <motion.p
-        className={styles.category}
-        initial="hidden"
-        whileInView="visible"
-        variants={fadeInUpVariants}
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        {category}
-      </motion.p>
+  const renderCategory = () => (
+    <motion.p
+      className={styles.category}
+      initial="hidden"
+      whileInView="visible"
+      variants={fadeInUpVariants}
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      {category}
+    </motion.p>
+  );
 
-      <motion.h2
-        className={styles.heading}
-        initial="hidden"
-        whileInView="visible"
-        variants={fadeInUpVariants}
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        {heading}
-      </motion.h2>
+  const renderHeading = () => (
+    <motion.h2
+      className={styles.heading}
+      initial="hidden"
+      whileInView="visible"
+      variants={fadeInUpVariants}
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      {heading}
+    </motion.h2>
+  );
 
-      <motion.p
-        className={styles.description}
-        initial="hidden"
-        whileInView="visible"
-        variants={fadeInUpVariants}
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        {description}
-      </motion.p>
+  const renderDescription = () => (
+    <motion.p
+      className={styles.description}
+      initial="hidden"
+      whileInView="visible"
+      variants={fadeInUpVariants}
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      {description}
+    </motion.p>
+  );
 
-      <motion.div
-        className={styles.offerings}
-        initial="hidden"
-        whileInView="visible"
-        variants={fadeInUpVariants}
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        <h3>Offerings:</h3>
-        <ul>
-          {offerings.map((offering, index) => (
-            <li key={index}>{offering}</li>
-          ))}
-        </ul>
-      </motion.div>
-    </div>
+  const renderOfferings = () => (
+    <motion.div
+      className={styles.offerings}
+      initial="hidden"
+      whileInView="visible"
+      variants={fadeInUpVariants}
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <h3>Offerings:</h3>
+      <ul>
+        {offerings.map((offering, index) => (
+          <li key={index}>{offering}</li>
+        ))}
+      </ul>
+    </motion.div>
   );
 
   const renderImages = () => (
@@ -119,20 +123,45 @@ export default function ServiceDetailsSection({
     </div>
   );
 
+  const renderDesktopContent = () => (
+    <div className={`${contentClass} ${contentDarkClass}`}>
+      {renderCategory()}
+      {renderHeading()}
+      {renderDescription()}
+      {renderOfferings()}
+    </div>
+  );
+
+  const renderMobileContent = () => (
+    <div className={`${contentClass} ${contentDarkClass}`}>
+      {renderCategory()}
+      {renderHeading()}
+      {renderImages()}
+      {renderDescription()}
+      {renderOfferings()}
+    </div>
+  );
+
   return (
     <section 
       id={id}
       className={`${styles.section} ${isDark ? styles.dark : ''}`}
     >
+      {/* Mobile Layout */}
+      <div className={styles.containerMobile}>
+        {renderMobileContent()}
+      </div>
+
+      {/* Desktop Layout */}
       <div className={`${styles.container} ${containerClass}`}>
         {layout === 'right-content' ? (
           <>
             {renderImages()}
-            {renderContent()}
+            {renderDesktopContent()}
           </>
         ) : (
           <>
-            {renderContent()}
+            {renderDesktopContent()}
             {renderImages()}
           </>
         )}
