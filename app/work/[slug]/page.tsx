@@ -4,12 +4,13 @@ import ProjectMetadata from '@/app/components/work/ProjectMetadata';
 import ContentSection from '@/app/components/work/ContentSection';
 import ResultsSection from '@/app/components/work/ResultsSection';
 import { notFound } from 'next/navigation';
+import { use } from 'react';
 import type { Metadata } from 'next';
 
 interface WorkDetailPageProps {
-  params: { 
+  params: Promise<{ 
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -19,7 +20,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: WorkDetailPageProps): Promise<Metadata> {
-  const project = getProject(params.slug);
+  const resolvedParams = await params;
+  const project = getProject(resolvedParams.slug);
 
   if (!project) {
     return {
@@ -39,7 +41,8 @@ export async function generateMetadata({ params }: WorkDetailPageProps): Promise
 }
 
 export default function WorkDetailPage({ params }: WorkDetailPageProps) {
-  const project = getProject(params.slug);
+  const resolvedParams = use(params);
+  const project = getProject(resolvedParams.slug);
 
   if (!project) {
     notFound();
