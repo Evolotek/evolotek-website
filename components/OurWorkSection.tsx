@@ -56,6 +56,16 @@ const projects = [
 		category: 'Fintech',
 		gridSpan: 'large',
 	},
+  {
+    id: 6,
+    name: 'Equalum',
+    description:
+      'Real-time data integration and streaming platform for enterprises.',
+    image:
+      'https://images.pexels.com/photos/1089438/pexels-photo-1089438.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
+    category: 'Data Integration',
+    gridSpan: 'standard',
+  },
 ];
 
 interface ProjectCardProps {

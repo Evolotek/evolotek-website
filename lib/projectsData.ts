@@ -39,6 +39,7 @@ export interface Project {
   results: Metric[];
   gallery: Image[];
   testimonial?: Testimonial;
+  whyItMatters?: string;
 }
 
 export const projectsData: Project[] = [
@@ -407,6 +408,94 @@ The Insights Hub became more than a data project. It was embedded into the way t
       { src: '/images/briskpe-logo.png', alt: 'Real-Time Settlement & Analytics View' },
     ],
   },
+  {
+    slug: 'equalum',
+    client: 'Equalum',
+    title: 'Equalum',
+    tagline: ' Offshore Data Engineering (Acquired by Google)',
+    theme: 'dark',
+    coverImage: '/images/equalum-logo.png',
+    services: [
+      'Offshore Data Engineering',
+      'Real-Time Data Platform Support',
+      'Cloud Analytics',
+      'AI/ML Data Enablement',
+      'Pipeline Development',
+      'Operational Monitoring',
+      'Customer Support',
+      'Agile Collaboration',
+    ],
+    sectors: [
+      'Data Integration',
+      'Cloud',
+      'AI/ML',
+      'Analytics',
+      'Enterprise SaaS',
+    ],
+    overview: `Equalum was a leading Israeli technology company delivering a real-time, no-code data streaming and integration platform, purpose-built for modern analytics, AI/ML, and data warehouse modernization. In June 2023, Equalum was acquired by Google, with its technology becoming part of Google Cloud’s data services ecosystem.\n\nEvolotek helped Equalum build and operate a scalable offshore data support and engineering team, enabling real-time CDC pipelines, cloud analytics, and AI workloads. This foundation supported Equalum’s growth and operational maturity ahead of its acquisition by Google Cloud in 2023.`,
+    challenge: `As Equalum experienced rapid growth and enterprise adoption, the company needed to:\n- Scale data engineering and platform support efficiently\n- Maintain high availability for real-time data pipelines\n- Support complex customer environments across multiple clouds\n- Accelerate development without compromising quality or security\n\nThey required a trusted offshore partner who could operate as a true extension of their core engineering team.`,
+    solution: `Evolotek helped Equalum design, build, and operate an offshore data support and engineering team, tightly integrated with their Israel-based leadership and product teams.\n\nWhat We Delivered:\n- Dedicated Offshore Data Engineering Team: Skilled engineers specializing in CDC, streaming systems, and cloud data platforms.\n- 24/7 Data Platform Support: Proactive monitoring, issue resolution, and pipeline reliability for mission-critical workloads.\n- Engineering Velocity at Scale: Faster feature delivery and reduced operational load on core teams.\n- Seamless Collaboration Model: Agile processes, direct communication, and shared ownership of outcomes.`,
+    whyItMatters: `Why It Matters\nThis engagement highlights Evolotek’s ability to act as a strategic offshore partner—not just a staffing vendor. We help high-growth technology companies build durable, scalable engineering teams that power critical data infrastructure and unlock long-term value.`,
+    features: [
+      {
+        title: 'Real-Time Change Data Capture (CDC)',
+        description: 'Streaming live data changes from databases such as Oracle, MySQL, and SQL Server.'
+      },
+      {
+        title: 'End-to-End Data Pipelines',
+        description: 'Ingestion, transformation (ETL), and delivery to targets including AWS, Azure, Google Cloud, Snowflake, and data lakes.'
+      },
+      {
+        title: 'No-Code Pipeline Development',
+        description: 'Supporting a drag-and-drop interface that enabled customers to build complex pipelines without writing code.'
+      },
+      {
+        title: 'Open-Source Ecosystem',
+        description: 'Leveraging technologies such as Apache Kafka and Apache Spark for scalable, high-performance data processing.'
+      },
+      {
+        title: '24/7 Data Platform Support',
+        description: 'Proactive monitoring, issue resolution, and pipeline reliability for mission-critical workloads.'
+      },
+      {
+        title: 'Seamless Collaboration',
+        description: 'Agile processes, direct communication, and shared ownership of outcomes.'
+      },
+    ],
+    technologies: [
+      'Apache Kafka',
+      'Apache Spark',
+      'AWS',
+      'Azure',
+      'Google Cloud',
+      'Snowflake',
+      'Oracle',
+      'MySQL',
+      'SQL Server',
+      'ETL',
+      'No-Code Platforms',
+      'Python',
+      'Data Engineering',
+      'Monitoring & Alerting',
+    ],
+    results: [
+      { label: 'Engineering Capacity Scaled', value: '3x' },
+      { label: 'Platform Uptime', value: '99.99%' },
+      { label: 'Customer Support Coverage', value: '24/7' },
+      { label: 'Acquisition by Google', value: '2023' },
+    ],
+    gallery: [
+      { src: '/images/equalum-logo.png', alt: 'Equalum Data Platform' },
+      { src: '/images/equalum-1.jpg', alt: 'Real-Time CDC Pipeline Monitoring' },
+      { src: '/images/equalum-2.jpg', alt: 'Offshore Data Engineering Team Collaboration' },
+    ],
+    testimonial: {
+      quote: 'Evolotek enabled us to scale our engineering and support operations globally, ensuring reliability and rapid delivery as we grew and prepared for acquisition.',
+      author: 'VP Engineering',
+      role: 'Equalum',
+      company: 'Equalum',
+    },
+  }
 ];
 
 export function getProject(slug: string): Project | undefined {
