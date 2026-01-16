@@ -413,7 +413,7 @@ The Insights Hub became more than a data project. It was embedded into the way t
     client: 'Equalum',
     title: 'Equalum',
     tagline: ' Offshore Data Engineering (Acquired by Google)',
-    theme: 'dark',
+    theme: 'light',
     coverImage: '/images/equalum-logo.png',
     services: [
       'Offshore Data Engineering',

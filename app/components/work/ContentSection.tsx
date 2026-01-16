@@ -25,7 +25,7 @@ export default function ContentSection({
 }: ContentSectionProps) {
   return (
     <motion.section
-      className={styles.section}
+      className={`${styles.section} ${styles[theme]}`}
       initial="hidden"
       whileInView="visible"
       variants={fadeInUpVariants}

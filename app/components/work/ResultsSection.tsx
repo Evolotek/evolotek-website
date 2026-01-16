@@ -13,7 +13,7 @@ interface ResultsSectionProps {
 export default function ResultsSection({ results, theme }: ResultsSectionProps) {
   return (
     <motion.section
-      className={styles.section}
+      className={`${styles.section} ${styles[theme]}`}
       initial="hidden"
       whileInView="visible"
       variants={fadeInUpVariants}
