@@ -46,15 +46,51 @@ export default function PartnershipForm({ isOpen, onClose }: PartnershipFormProp
     raisingSeeking: '',
     problemSolving: '',
   });
+  const [customSector, setCustomSector] = useState('');
+
+  const sectorOptions = [
+    'fintech',
+    'healthtech',
+    'deeptech',
+    'consumer',
+    'b2b-saas',
+    'edtech',
+    'ecommerce',
+  ];
 
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [currentStep, setCurrentStep] = useState(1);
   const [errorMessage, setErrorMessage] = useState<string>('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const { name, value } = e.target;
+  if (name === 'sector') {
+    if (value === 'other') {
+      setFormData({
+        ...formData,
+        sector: 'other', // Keep 'other' in formData
+      });
+      setCustomSector(''); // Reset custom sector input
+    } else {
+      setFormData({
+        ...formData,
+        sector: value,
+      });
+      setCustomSector(''); // Clear custom sector when selecting predefined option
+    }
+  } else {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
+    });
+  }
+};
+
+  const handleCustomSectorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCustomSector(e.target.value);
+    setFormData({
+      ...formData,
+      sector: e.target.value,
     });
   };
 
@@ -136,6 +172,7 @@ export default function PartnershipForm({ isOpen, onClose }: PartnershipFormProp
           raisingSeeking: '',
           problemSolving: '',
         });
+        setCustomSector('');
         setStatus('idle');
         setCurrentStep(1);
         setErrorMessage('');
@@ -311,7 +348,7 @@ export default function PartnershipForm({ isOpen, onClose }: PartnershipFormProp
                       <select
                         id="sector"
                         name="sector"
-                        value={formData.sector}
+                        value={formData.sector === 'other' || (!sectorOptions.includes(formData.sector) && customSector !== '') ? 'other' : formData.sector}
                         onChange={handleChange}
                         required
                       >
@@ -325,6 +362,18 @@ export default function PartnershipForm({ isOpen, onClose }: PartnershipFormProp
                         <option value="ecommerce">E-commerce</option>
                         <option value="other">Other</option>
                       </select>
+                      {(formData.sector === '' && customSector !== '') || 
+                          (!sectorOptions.includes(formData.sector) && formData.sector !== '') ? (
+                            <input
+                              type="text"
+                              name="customSector"
+                              value={customSector}
+                              onChange={handleCustomSectorChange}
+                              placeholder="Please specify your sector"
+                              className={styles.customSectorInput}
+                              required
+                            />
+                          ) : null}
                     </div>
 
                     <div className={styles.formGroup}>
