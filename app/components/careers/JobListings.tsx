@@ -6,7 +6,21 @@ import { fadeInUpVariants } from '@/app/utils/animations';
 import ApplicationModal from './ApplicationModal';
 import styles from '@/app/styles/careers/JobListings.module.css';
 
-const jobs = [
+interface Job {
+  id: number;
+  title: string;
+  department: string;
+  location: string;
+  type: string;
+  description: string;
+  fullDescription?: string;
+  responsibilities: string[];
+  requirements: string[];
+  niceToHave?: string[];
+  benefits: string[];
+}
+
+const jobs: Job[] = [
   {
     id: 1,
     title: 'TIBCO Developer',
@@ -47,6 +61,91 @@ const jobs = [
       'Fully remote position',
       'Work timings: 12:00 PM - 9:00 PM IST',
       'Opportunity to work with Guardian (client)',
+    ],
+  },
+  {
+    id: 2,
+    title: 'Senior Salesforce Administrator',
+    department: 'Engineering',
+    location: 'Remote',
+    type: 'Night Shift (US Time Zone)',
+    description: 'As a Senior Salesforce Administrator you will be responsible for the design, implementation, and maintenance of our Salesforce platform to support our business processes and objectives. You will work closely with cross-functional teams to gather requirements, develop solutions, and ensure the successful deployment and adoption of Salesforce functionalities. You will work with Sales, Service, and Marketing Cloud products in addition to Field Service Lightning.',
+    fullDescription: `Job Type: Remote | Night Shift (US Time Zone)
+
+Key Responsibilities:
+• Design, configure, and customize Salesforce to support business requirements.
+• Collaborate with stakeholders to gather and analyze requirements, translating them into technical solutions within Salesforce.
+• Implement and maintain custom objects, fields, flows, validation rules, and other Salesforce components as needed.
+• Configure and optimize Field Service Lightning to streamline service operations, including scheduling, dispatching, and mobile functionality.
+• Develop and maintain integrations between Salesforce and other systems to enable seamless data flow and process automation.
+• Provide ongoing support and troubleshooting for Salesforce users, addressing issues, and implementing enhancements as needed.
+• Drive user adoption through training sessions, documentation, and ongoing support to maximize the value of Salesforce investments.
+• Stay updated on Salesforce best practices, new features, and industry trends, recommending improvements and optimizations as appropriate.
+• Collaborate with Salesforce developers, architects, and other team members to deliver scalable and efficient solutions.
+• Management of integrated applications and third-party applications including Conga, Own, Think, and Convoso.
+
+Required Qualifications:
+• Certified Salesforce Administrator
+• A minimum of 3 to 5 years of Salesforce experience with Sales and Service Cloud.
+• You will be encouraged to attend trade shows and conferences, therefore you should be able to travel 10% of the time
+
+Desirable Qualifications:
+• A Bachelor's or post graduate degree, or qualification.
+• Additional Salesforce certifications e.g. Advanced Administrator, Platform App Builder, Platform Developer, etc.
+
+Required Skills:
+• Strong understanding of Salesforce platform capabilities, data model, and security model.
+• Proficiency in Salesforce configuration, customization, and administration.
+• Experience with Field Service Lightning setup, configuration, and optimization for service operations.
+• Excellent analytical, problem-solving, and communication skills, with the ability to collaborate effectively with cross-functional teams.
+• Ability to prioritize and manage multiple tasks in a fast-paced environment, with a strong attention to detail.
+• Proficiency in PowerPoint and Excel
+• Strong analytical and conceptual skills, including technical writing for a non-technical audience
+
+Desirable Skills:
+• Knowledge of CPQ concepts, including product configuration, pricing rules, and quote generation.
+• Knowledge of APEX, Force.com, SOQL, Triggers and Visual Force Page development.
+• Experience with Agile development methodologies
+• Active in the Salesforce community
+• Demonstrate interest in professional development`,
+    responsibilities: [
+      'Design, configure, and customize Salesforce to support business requirements',
+      'Collaborate with stakeholders to gather and analyze requirements, translating them into technical solutions within Salesforce',
+      'Implement and maintain custom objects, fields, flows, validation rules, and other Salesforce components as needed',
+      'Configure and optimize Field Service Lightning to streamline service operations, including scheduling, dispatching, and mobile functionality',
+      'Develop and maintain integrations between Salesforce and other systems to enable seamless data flow and process automation',
+      'Provide ongoing support and troubleshooting for Salesforce users, addressing issues, and implementing enhancements as needed',
+      'Drive user adoption through training sessions, documentation, and ongoing support to maximize the value of Salesforce investments',
+      'Stay updated on Salesforce best practices, new features, and industry trends, recommending improvements and optimizations as appropriate',
+      'Collaborate with Salesforce developers, architects, and other team members to deliver scalable and efficient solutions',
+      'Management of integrated applications and third-party applications including Conga, Own, Think, and Convoso',
+    ],
+    requirements: [
+      'Certified Salesforce Administrator',
+      'A minimum of 3 to 5 years of Salesforce experience with Sales and Service Cloud',
+      'Able to travel 10% of the time to attend trade shows and conferences',
+      'Strong understanding of Salesforce platform capabilities, data model, and security model',
+      'Proficiency in Salesforce configuration, customization, and administration',
+      'Experience with Field Service Lightning setup, configuration, and optimization for service operations',
+      'Excellent analytical, problem-solving, and communication skills, with the ability to collaborate effectively with cross-functional teams',
+      'Ability to prioritize and manage multiple tasks in a fast-paced environment, with a strong attention to detail',
+      'Proficiency in PowerPoint and Excel',
+      'Strong analytical and conceptual skills, including technical writing for a non-technical audience',
+    ],
+    niceToHave: [
+      'A Bachelor\'s or post graduate degree, or qualification',
+      'Additional Salesforce certifications e.g. Advanced Administrator, Platform App Builder, Platform Developer, etc.',
+      'Knowledge of CPQ concepts, including product configuration, pricing rules, and quote generation',
+      'Knowledge of APEX, Force.com, SOQL, Triggers and Visual Force Page development',
+      'Experience with Agile development methodologies',
+      'Active in the Salesforce community',
+      'Demonstrate interest in professional development',
+    ],
+    benefits: [
+      'Fully remote position',
+      'Night shift working with US time zone',
+      'Opportunity to work with cross-functional teams',
+      'Professional development opportunities including trade shows and conferences',
     ],
   },
 ];
@@ -121,47 +220,57 @@ export default function JobListings() {
                     <span className={styles.type}>{job.type}</span>
                   </div>
 
-                  <p className={styles.jobDescription}>{job.description}</p>
+                  <p className={styles.jobDescription}>
+                    <span className={styles.jobDescriptionFont}>{job.description}</span>
+                  </p>
 
                   {expandedJobId === job.id && (
                     <div className={styles.expandedContent}>
-                      <div className={styles.section}>
-                        <h4 className={styles.sectionHeading}>What You'll Do</h4>
-                        <ul className={styles.list}>
-                          {job.responsibilities.map((item, idx) => (
-                            <li key={idx}>{item}</li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div className={styles.section}>
-                        <h4 className={styles.sectionHeading}>What We're Looking For</h4>
-                        <ul className={styles.list}>
-                          {job.requirements.map((item, idx) => (
-                            <li key={idx}>{item}</li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {job.niceToHave && job.niceToHave.length > 0 && (
-                        <div className={styles.section}>
-                          <h4 className={styles.sectionHeading}>Nice to Have</h4>
-                          <ul className={styles.list}>
-                            {job.niceToHave.map((item, idx) => (
-                              <li key={idx}>{item}</li>
-                            ))}
-                          </ul>
+                      {job.fullDescription ? (
+                        <div className={styles.fullDescription} style={{ whiteSpace: 'pre-wrap' }}>
+                          <span className={styles.fullDescription}>{job.fullDescription}</span>
                         </div>
-                      )}
+                      ) : (
+                        <>
+                          <div className={styles.section}>
+                            <h4 className={styles.sectionHeading}>What You'll Do</h4>
+                            <ul className={styles.list}>
+                              {job.responsibilities.map((item, idx) => (
+                                <li key={idx}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
 
-                      <div className={styles.section}>
-                        <h4 className={styles.sectionHeading}>What We Offer</h4>
-                        <ul className={styles.list}>
-                          {job.benefits.map((item, idx) => (
-                            <li key={idx}>{item}</li>
-                          ))}
-                        </ul>
-                      </div>
+                          <div className={styles.section}>
+                            <h4 className={styles.sectionHeading}>What We're Looking For</h4>
+                            <ul className={styles.list}>
+                              {job.requirements.map((item, idx) => (
+                                <li key={idx}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          {job.niceToHave && job.niceToHave.length > 0 && (
+                            <div className={styles.section}>
+                              <h4 className={styles.sectionHeading}>Nice to Have</h4>
+                              <ul className={styles.list}>
+                                {job.niceToHave.map((item, idx) => (
+                                  <li key={idx}>{item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          <div className={styles.section}>
+                            <h4 className={styles.sectionHeading}>What We Offer</h4>
+                            <ul className={styles.list}>
+                              {job.benefits.map((item, idx) => (
+                                <li key={idx}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        </>
+                      )}
                     </div>
                   )}
 

@@ -1,3 +1,19 @@
+/* Ensures expanded job fullDescription font matches collapsed description */
+.fullDescription {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #4b5563;
+  font-weight: 400;
+  line-height: 1.6;
+}
+/* Ensures job description font matches other UI text */
+.jobDescriptionFont {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #4b5563;
+  font-weight: 400;
+  line-height: 1.6;
+}
 .section {
   background-color: #f9f9f9;
   padding: 100px 60px;
