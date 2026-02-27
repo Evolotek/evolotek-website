@@ -30,6 +30,7 @@ export function Navigation() {
 
   const navLinks = [
     // { href: '/insights', label: 'Insights' },
+    { href: '/products', label: 'Products' },
     { href: '/startup', label: 'Startup' },
     { href: '/work', label: 'Work' },
     { href: '/services', label: 'Services' },
