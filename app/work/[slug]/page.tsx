@@ -64,31 +64,74 @@ export default function WorkDetailPage({ params }: WorkDetailPageProps) {
         theme={project.theme}
       />
 
-      <ContentSection
-        heading="Project Overview"
-        content={project.overview}
-        layout="text-only"
-        theme={project.theme}
-      />
 
-      <ContentSection
-        heading="The Challenge"
-        content={project.challenge}
-        layout="text-image"
-        image={project.gallery[0]?.src}
-        imageAlt={project.gallery[0]?.alt}
-        theme={project.theme}
-      />
-
-      <ContentSection
-        heading="Our Solution"
-        content={project.solution}
-        layout="text-image"
-        image={project.gallery[1]?.src}
-        imageAlt={project.gallery[1]?.alt}
-        theme={project.theme}
-        reversed
-      />
+      {/* Custom section for LongHome project */}
+      {project.slug === 'longhome' ? (
+        <>
+          <ContentSection
+            heading="AI-Powered Accounts Payable Automation for LongHome"
+            content={`Evolotek partnered with LongHome to modernize their Accounts Payable operations using AI-driven automation, intelligent document processing, and workflow orchestration.\nThe goal was simple: eliminate manual effort, reduce processing time, and improve financial accuracy at scale.`}
+            layout="text-only"
+            theme={project.theme}
+          />
+          <ContentSection
+            heading="The Challenge"
+            content={`LongHome’s AP process relied heavily on:\n- Manual invoice data entry\n- Email-based approvals and fragmented communication\n- Slow reconciliation cycles\n- High risk of human error and duplicate payments\n\nThis created operational delays, increased costs, and limited finance team productivity.`}
+            layout="text-only"
+            theme={project.theme}
+          />
+          <ContentSection
+            heading="The Evolotek Solution"
+            content={`We implemented an end-to-end AI automation framework that included:\n- AI Invoice Capture & Data Extraction: Automated reading of invoices from PDFs, emails, and scanned documents with high accuracy.\n- Smart Validation & Duplicate Detection: AI-based checks to prevent payment errors and ensure compliance.\n- Automated Approval Workflows: Role-based routing, reminders, and real-time visibility across stakeholders.\n- ERP-Ready Integration: Seamless synchronization with LongHome’s financial systems for faster reconciliation.`}
+            layout="text-only"
+            theme={project.theme}
+          />
+          <ContentSection
+            heading="Measurable Business Impact"
+            content={`Our automation delivered significant operational improvements:\n- 70–85% reduction in manual AP effort\n- 3× faster invoice processing time\n- Near-zero duplicate payment risk\n- Improved audit readiness and financial visibility\n- Finance team refocused on strategic work instead of data entry\n\nResult: Lower operational cost, faster close cycles, and scalable finance operations.`}
+            layout="text-only"
+            theme={project.theme}
+          />
+          <ContentSection
+            heading="Why Evolotek"
+            content={`Evolotek builds real-world AI automation that delivers measurable ROI, not just prototypes.\n- Deep expertise in finance workflow automation\n- Rapid deployment with enterprise-grade security\n- Proven impact across mid-market and growth companies\n- Focus on people-first productivity and scalable growth`}
+            layout="text-only"
+            theme={project.theme}
+          />
+          <ContentSection
+            heading="Ready to Automate Your Finance Operations?"
+            content={`Let’s transform your Accounts Payable into an intelligent, self-driving workflow.\nContact Evolotek →\nBuild faster. Operate smarter. Scale with confidence.`}
+            layout="text-only"
+            theme={project.theme}
+          />
+        </>
+      ) : (
+        <>
+          <ContentSection
+            heading="Project Overview"
+            content={project.overview}
+            layout="text-only"
+            theme={project.theme}
+          />
+          <ContentSection
+            heading="The Challenge"
+            content={project.challenge}
+            layout="text-image"
+            image={project.gallery[0]?.src}
+            imageAlt={project.gallery[0]?.alt}
+            theme={project.theme}
+          />
+          <ContentSection
+            heading="Our Solution"
+            content={project.solution}
+            layout="text-image"
+            image={project.gallery[1]?.src}
+            imageAlt={project.gallery[1]?.alt}
+            theme={project.theme}
+            reversed
+          />
+        </>
+      )}
 
       <section style={{ padding: '100px 60px', background: '#ffffff' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>

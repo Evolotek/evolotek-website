@@ -8,16 +8,46 @@ import '../app/styles/work-section.css';
 const projects = [
 	{
 		id: 1,
-		name: 'Cybrella',
+		name: 'LongHome',
 		description:
-			'Advanced cybersecurity solutions specializing in IoT, mobile, cloud, and data security.',
+			'AI-powered accounts payable automation for finance operations. Intelligent workflows, document processing, and ERP integration.',
 		image:
-			'https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
-		category: 'Cybersecurity',
+			'https://images.pexels.com/photos/6693655/pexels-photo-6693655.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
+		category: 'AI Automation',
 		gridSpan: 'large',
 	},
 	{
-		id: 2,
+			id: 2,
+			name: 'Veefin',
+			description:
+				'Supply Chain Finance platform with technical resourcing and rapid product development.',
+			image:
+				'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
+			category: 'Fintech',
+			gridSpan: 'standard',
+		},
+	{
+		id: 3,
+		name: 'Briskpe',
+		description:
+			'Global payment platform for seamless international transactions.',
+		image:
+			'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
+		category: 'Fintech',
+		gridSpan: 'large',
+	},
+	{
+		id: 4,
+		name: 'Equalum',
+		description:
+			'Real-time data integration and streaming platform for enterprises.',
+		image:
+			'https://images.pexels.com/photos/1089438/pexels-photo-1089438.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
+		category: 'Data Integration',
+		gridSpan: 'standard',
+	},
+	{
+		id: 5,
 		name: 'Zoomaya',
 		description:
 			'Enterprise platform for monitoring internal threats and fraud prevention.',
@@ -27,7 +57,7 @@ const projects = [
 		gridSpan: 'standard',
 	},
 	{
-		id: 3,
+		id: 6,
 		name: 'Sipstr',
 		description:
 			'Revolutionary alcohol delivery platform with smart inventory management.',
@@ -37,7 +67,7 @@ const projects = [
 		gridSpan: 'large',
 	},
 	{
-		id: 4,
+		id: 7,
 		name: 'VeraEaty',
 		description:
 			'AI-powered meal planning assistant with personalized meal plans.',
@@ -47,25 +77,15 @@ const projects = [
 		gridSpan: 'standard',
 	},
 	{
-		id: 5,
-		name: 'Briskpe',
+		id: 8,
+		name: 'Cybrella',
 		description:
-			'Global payment platform for seamless international transactions.',
+			'Advanced cybersecurity solutions specializing in IoT, mobile, cloud, and data security.',
 		image:
-			'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
-		category: 'Fintech',
+			'https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
+		category: 'Cybersecurity',
 		gridSpan: 'large',
 	},
-  {
-    id: 6,
-    name: 'Equalum',
-    description:
-      'Real-time data integration and streaming platform for enterprises.',
-    image:
-      'https://images.pexels.com/photos/1089438/pexels-photo-1089438.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop',
-    category: 'Data Integration',
-    gridSpan: 'standard',
-  },
 ];
 
 interface ProjectCardProps {

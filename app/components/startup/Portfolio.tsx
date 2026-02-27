@@ -7,6 +7,7 @@ import styles from '@/app/styles/startup/Portfolio.module.css';
 
 const logos = [
   { id: 1, name: 'Zoomaya', src: '/images/zoomaya-logo.png', size: 'large' },
+  { id: 2, name: 'LongHome', src: '/images/longhome-logo.png', size: 'large' },
   { id: 3, name: 'BRISKPE', src: '/images/briskpe-logo.png', size: 'small' },
   { id: 4, name: 'Sipstr', src: '/images/sipstr-logo.png', size: 'large' },
   { id: 5, name: 'Veraeaty', src: '/images/veraeaty-logo.png', size: 'large' },
